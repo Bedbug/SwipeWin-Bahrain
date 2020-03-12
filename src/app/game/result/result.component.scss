@@ -45,12 +45,12 @@
       z-index: -1;
       margin: -$border; /* !importanté */
       border-radius: inherit; /* !importanté */
-      background: linear-gradient(to top, #ff6600, #ff6600);
+      background: linear-gradient(to top, #ff375e, #ff375e);
     }
     &__number {
       font-size: 33px;
       text-align: center;
-      color: #ff6600;
+      color: #ff375e;
       line-height: 80px;
       width: 80px;
       font-weight: bold;
@@ -131,12 +131,12 @@
       z-index: -1;
       margin: -$border; /* !importanté */
       border-radius: inherit; /* !importanté */
-      background: linear-gradient(to top, #ff6600, #ff6600);
+      background: linear-gradient(to top, #ff375e, #ff375e);
     }
     &__number {
       font-size: 33px;
       text-align: center;
-      color: #ff6600;
+      color: #ff375e;
       line-height: 80px;
       width: 80px;
       font-weight: bold;
@@ -210,7 +210,7 @@
   // box-shadow: 0 9px 18px 0 rgba(89, 247, 74, 0.2);
   // background-image: linear-gradient(to bottom, #fdff67, #8ff212 16%, #3ead07 84%, #2bc71c);
   box-shadow: 0 9px 13px 0 rgba(0, 0, 0, 0.1);
-  background-image: linear-gradient(to bottom, #ff6600, #ff6600 16%, #ff6600 66%, #ff6600);
+  background-image: linear-gradient(to bottom, #ff375e, #ff375e 16%, #ff375e 66%, #ff375e);
   margin-bottom: 12px;
   border:none;
   font-size: 25px;

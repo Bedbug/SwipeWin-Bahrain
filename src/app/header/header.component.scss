@@ -3,9 +3,10 @@
   z-index: 100;
   width: 100%;
   .uk-navbar-container{
-    background: black;
-    box-shadow: 0 5px 20px rgba(0,0,0,0.09);
+    background: #45027a;
+    box-shadow: 0 5px 11px rgba(0, 0, 0, 0.5);
     height: 68px;
+    border-bottom: 1px solid #d4d0c5;
   }
 
 }
@@ -94,7 +95,7 @@
     
   }
   .uk-offcanvas-bar {
-    background: #262729;
+    background: #f3f3f1;
   }
 }
 
@@ -113,7 +114,7 @@
     width: 100%;
   }
   .uk-offcanvas-bar {
-    background: #262729;
+    background: #f3f3f1;
   }
   
   
@@ -131,7 +132,7 @@
 }
 
 #offcanvas-nav .nav-list-box {
-  border-bottom: 1px solid black !important;
+  // border-bottom: 1px solid black !important;
     padding: 15px;
     padding-right: 0;
     margin-left: 14px;

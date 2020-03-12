@@ -1,16 +1,30 @@
+// @font-face {
+//     font-family: 'CorpidE1SCd_Regular';
+//     src: local('CorpidE1SCd_Regular'), local('CorpidE1SCd Regular'), url('./assets/fonts/CorpidE1SCd_Regular.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'CorpidE1SCd_Bold';
+//     src: local('CorpidE1SCd_Bold'), local('CorpidE1SCd Bold'), url('./assets/fonts/CorpidE1SCd_Bold.ttf') format('truetype');
+// }
+
+// @font-face {
+//     font-family: 'CorpidE1SCd_Light';
+//     src: local('CorpidE1SCd_Light'), local('CorpidE1SCd Light'), url('./assets/fonts/CorpidE1SCd_Light.ttf') format('truetype');
+// }
 @font-face {
-    font-family: 'CorpidE1SCd_Regular';
-    src: local('CorpidE1SCd_Regular'), local('CorpidE1SCd Regular'), url('./assets/fonts/CorpidE1SCd_Regular.ttf') format('truetype');
+    font-family: 'STC-Regular';
+    src: local('STC-Regular'), local('STC Regular'), url('./assets/fonts/STC-Regular.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'CorpidE1SCd_Bold';
-    src: local('CorpidE1SCd_Bold'), local('CorpidE1SCd Bold'), url('./assets/fonts/CorpidE1SCd_Bold.ttf') format('truetype');
+    font-family: 'STC-Bold';
+    src: local('STC-Bold'), local('STC Bold'), url('./assets/fonts/STC-Bold.otf') format('opentype');
 }
 
 @font-face {
-    font-family: 'CorpidE1SCd_Light';
-    src: local('CorpidE1SCd_Light'), local('CorpidE1SCd Light'), url('./assets/fonts/CorpidE1SCd_Light.ttf') format('truetype');
+    font-family: 'STC-Light';
+    src: local('STC-'), local('STC Light'), url('./assets/fonts/STC-Light.otf') format('opentype');
 }
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&subset=cyrillic');
 

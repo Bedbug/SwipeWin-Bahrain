@@ -11,7 +11,7 @@
     padding: 16px 11px 16px 11px;
     border-radius: 0px;
     box-shadow: 0 2px 20px 0 rgba(60, 61, 64, 0.1), 0 2px 4px 0 rgba(55, 55, 56, 0.2);
-    background-color: #1b1b1d;
+    background-color: #fff;
     .uk-accordion-content {
       font-size: 14px;
       font-weight: normal;
@@ -19,7 +19,11 @@
       font-stretch: normal;
       line-height: 1.43;
       letter-spacing: normal;
-      color: #ffffff;
+      color: #939393;
+      background-color: #fef6fe;
+      margin: -11px;
+      padding: 12px;
+      box-shadow: inset 0 4px 10px -8px rgba(0, 0, 0, 0.5);
     }
   }
 }
@@ -95,8 +99,9 @@
   display: block;
   font-size: 1.25rem;
   line-height: 1.4;
-  color: #ff6600;
+  color: #ff375e;
   overflow: hidden;
+  font-weight: bold;
 }
 
 .direct_right{

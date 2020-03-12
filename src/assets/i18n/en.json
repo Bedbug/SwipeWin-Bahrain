@@ -4,8 +4,8 @@
         "CAR_01b": "every month",
         "CAR_02": "3,000 EGP in Cash",
         "CAR_02b": "every week",
-        "CAR_03": "300 EGP in Cash",
-        "CAR_03b": "every day",
+        "CAR_03": "Play every day<br> and gather points<br> for the new",
+        "CAR_03b": "iPhone 11",
         "CAR_04": "50 MB mobile data",
         "CAR_04b": "once upon scoring 10 or more correct questions",
         "NUM": "Mobile number",
@@ -29,7 +29,8 @@
         "SUB_SUC_01": "You have successfully",
         "SUB_SUC_02": "subscribed to Swipe & Win!",
         "SUB_SUC_03": "Continue",
-        "SUB_SUC_04": "Reedem your free round"
+        "SUB_SUC_04": "Reedem your free round",
+        "MESSAGE": "You have 1 FREE game/day"
     },
     "BURGER": {
         "HOME": "Home",
