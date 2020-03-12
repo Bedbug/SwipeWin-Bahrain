@@ -89,14 +89,14 @@
   <div class="buttons-container uk-container uk-text-center"  >
     
     <!-- <h4 style="color:white;">Insert your phone number and password to login</h4> -->
-    <form >
+    <!-- <form >
       <div class="uk-margin" >
           <div class="uk-inline uk-width-1-1 ">
               <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
               <input #number class="uk-input uk-border-rounded" type="text" (keyup)="onKey($event)" placeholder="{{ 'HOME.NUM' | translate }}"> 
           </div>
       </div>
-    </form>
+    </form> -->
     <div class="buttons-container uk-container uk-text-center">
       <p *ngIf="alertNumber" style="font-size: 12px; color: white;">{{ 'HOME.WRONGNUM' | translate }}</p>
       <p  style="font-size: 15px; color: white;">{{ 'HOME.MESSAGE' | translate }}</p>

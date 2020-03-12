@@ -95,6 +95,8 @@ export class HomeComponent implements OnInit {
     this.openSubSuccess = false;
     let errorCode = null;
     let msisdnCode = null;
+    let msisdn = null;
+    let otp = null;
 
     // TEST FOR HE SUBSCRIPTION
     // this.openHESub = true;
@@ -104,6 +106,9 @@ export class HomeComponent implements OnInit {
       (params: ParamMap) => {
         errorCode = params.get("errorCode");
         msisdnCode = params.get("ui");
+        msisdn = params.get("msisdn");
+        otp = params.get("otp");
+        console.log("MSISDN: " + msisdn, "OTP: "+ otp);
         this.sessionService.msisdnCode = msisdnCode;
         //console.log('Discovered ui= ' + msisdnCode);
       });

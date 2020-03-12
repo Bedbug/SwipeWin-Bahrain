@@ -40,6 +40,7 @@ export class GameComponent implements OnInit {
   public isTablet;
   public isLandscape;
   public startAsLandscape;
+  
   epicFunction() {
       console.log('hello `Home` component');
       this.deviceInfo = this.deviceService.getDeviceInfo();
@@ -59,7 +60,7 @@ export class GameComponent implements OnInit {
         this.isLandscape = true;
       else  
         this.isLandscape = false;
-    }
+  }
   
   onResize(event) {
     // console.log(event);
