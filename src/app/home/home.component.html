@@ -97,7 +97,8 @@
           </div>
       </div>
     </form> -->
-    <div class="buttons-container uk-container uk-text-center">
+    <div *ngIf="!_showButtons" class="lds-ripple"><div></div><div></div></div>
+    <div *ngIf="_showButtons" class="buttons-container uk-container uk-text-center">
       <p *ngIf="alertNumber" style="font-size: 12px; color: white;">{{ 'HOME.WRONGNUM' | translate }}</p>
       <p  style="font-size: 15px; color: white;">{{ 'HOME.MESSAGE' | translate }}</p>
       <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="submit(number.value)">{{ 'HOME.SUB-LOG' | translate }}</button> 

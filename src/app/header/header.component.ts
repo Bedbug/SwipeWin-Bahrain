@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit {
       this.alignAllLeft = true;
     }
     let offcanvas = UIkit.offcanvas("#offcanvas-nav");
-    console.log(offcanvas);
+    // console.log(offcanvas);
     offcanvas.$props.flip =  this.alignAllLeft;
 
 

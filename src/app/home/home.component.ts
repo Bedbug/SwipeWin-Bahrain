@@ -49,6 +49,7 @@ export class HomeComponent implements OnInit {
 
   public _isSubscribed = true;
   private _isHasCashback = false;
+  public _showButtons = false;
   public demoGamesPlayed = 0;
   public errorMsg = "";
   public noMoreRealGames = this.translate.instant('MESSAGES.MESSAGE_08');
@@ -110,9 +111,10 @@ export class HomeComponent implements OnInit {
         otp = params.get("otp");
         console.log("MSISDN: " + msisdn, "OTP: "+ otp);
         this.sessionService.msisdnCode = msisdnCode;
+        // this._showButtons = true;
         //console.log('Discovered ui= ' + msisdnCode);
       });
-
+      
     
       // Load the game settings
       this.dataService.fetchGameSettings().then(
