@@ -111,7 +111,7 @@ export class HomeComponent implements OnInit {
         otp = params.get("otp");
         console.log("MSISDN: " + msisdn, "OTP: "+ otp);
         this.sessionService.msisdnCode = msisdnCode;
-        // this._showButtons = true;
+        this._showButtons = true;
         //console.log('Discovered ui= ' + msisdnCode);
       });
       
