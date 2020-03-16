@@ -99,8 +99,9 @@ export class HomeComponent implements OnInit {
     let msisdn = null;
     let otp = null;
 
-    // TEST FOR HE SUBSCRIPTION
-    // this.openHESub = true;
+    // 1. Check OTP & MSISDN, if success continue, if false so error message
+    // 2. If True, check remaining games, if 1 open play button, if 0 open come back tommorow
+    
 
     // Check if we have any errorCode in the url, coming from another angular state
     this.activatedRoute.queryParamMap.subscribe(
