@@ -20,6 +20,9 @@ export class ResultComponent implements OnInit {
   get rightAnswerCount(): number {
     return this._rightAnswerCount;
   }
+  get totalPoints(): number {
+    return this._totalPoints;
+  }
   get gamesPlayed(): number {
     return this._gamesPlayed;
   }
@@ -31,6 +34,7 @@ export class ResultComponent implements OnInit {
   private _firstTime = false;
   public _gamesPlayed = 2;
   private _rightAnswerCount = 10;
+  private _totalPoints = 10;
   private _cashbackAmount = 0;
   private _secondVariant = true;
   private _firstGameEver = true;
@@ -45,6 +49,7 @@ export class ResultComponent implements OnInit {
       this.router.navigate(['home']);
       
     this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
+    this._totalPoints = this.session.lastGameResults.totalScore;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
     this._firstTime = this.session.gamesPlayed == 1;
     this._gamesPlayed = this.session.gamesPlayed;

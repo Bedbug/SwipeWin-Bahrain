@@ -74,12 +74,12 @@
   
   
   
-  <!-- 1. Check if MSISDN is in Header. If Yes Auto Login - goto 3
-  2. If No MSISDN in header open Subscribe/login. User adds his MSISDN and we check if already registered, create pin and sent to user by smartlink. If not check with libnumber if orange and register him.
-  3. Open OTP submit page. Check user for correct password.
-  4. Check if User has credits. (screen play now)
-  5. If not check if eligible to buy new. (Screen buy new round)
-  6. if not, alert that he has reached maximum. -->
+  <!-- 1. Check games played by the player today
+  2. If it is 0, open play button
+  3. If 1 or over, check subscriptions and open banners for subscriptions not active
+  4. Open come back tommorow text
+  5. 
+  6.  -->
   
   
   
@@ -95,9 +95,10 @@
     
       <div class="buttons-container uk-container uk-text-center">
         <p  style="font-size: 15px; color: white;">{{ 'HOME.MESSAGE' | translate }}</p>
-        <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button> 
-        <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  !this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button>
-        <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && _gamesPlayed >= 4"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
+        <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button>  -->
+        <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin && gamesPlayedToday < 1" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button> 
+        <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  !this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button> -->
+        <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && gamesPlayedToday >= 1"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
       </div>
       <!-- <div class="message-container" style="margin-top: 30px;">
         <p style="color:rgb(0, 0, 0); font-weight: bold; font-size: 20px;"><a  [routerLink]="['/info']" style="color:rgb(255, 255, 255); text-decoration: underline;">Resend PIN</a>

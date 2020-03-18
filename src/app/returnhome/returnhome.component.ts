@@ -33,6 +33,10 @@ export class ReturnhomeComponent implements OnInit {
   get gamesPlayed(): number {
     return this._gamesPlayed;
   }
+
+  get gamesPlayedToday(): number {
+    return this.sessionService.gamesPlayed;
+  }
   
   // Check if already a subscribed player
   private _isSubscribed = false;
@@ -42,6 +46,7 @@ export class ReturnhomeComponent implements OnInit {
   private _isChecked = false;
   // How many (1st free or billable) games the user has played
   public _gamesPlayed = 0;
+  
 
   public errorMsg = "";
   public noMoreRealGames = "Unfortunately, your current plan is not allowed to participate.\nTry using another number.";
@@ -97,16 +102,11 @@ export class ReturnhomeComponent implements OnInit {
     else {
       
       this._isSubscribed = this.sessionService.isSubscribed;
-     //console.log(this.sessionService.msisdn);
-     //console.log("this.session "+this.sessionService.token);
-      // this._cashBackAmount = this.sessionService._cashBackAmount;
-      // this._cashBackAmount = 500;
-      
-     //console.log( "Has Credit: " + this.sessionService.hasCredit() );
-     //console.log( "Played Games: " + this.sessionService.gamesPlayed );
-      // TOBE ERASED
-      // This resets the games played every time
-      
+     
+      console.log("Games Played Today: "+ this.sessionService.gamesPlayed);
+     
+      // If has not played today open play button
+      // If already played so played for today view
       
       this.dataService.getUserProfile().subscribe( 
         (data: any) => {

@@ -112,7 +112,7 @@ export class HomeComponent implements OnInit {
         otp = params.get("otp");
         console.log("MSISDN: " + msisdn, "OTP: "+ otp);
         this.sessionService.msisdnCode = msisdnCode;
-        this._showButtons = true;
+        // this._showButtons = true;
         //console.log('Discovered ui= ' + msisdnCode);
       });
       
@@ -146,13 +146,14 @@ export class HomeComponent implements OnInit {
             }
 
             // Else, Determine if this is the mobile/Ussd/Sms user flow or the WiFi one
-            else if (msisdnCode) {
-              // Mobile/Ussd/Sms flow here
+            else if (msisdn && otp) {
+              // Check For valid OTTP
 
              //console.log('Mobile /SMS /USSD user flow');
               this.AutoLogin = true;
 
-              this.dataService.authenticateOrangeSSO(msisdnCode).subscribe((resp: any) => {
+              // this.dataService.authenticateOrangeSSO(msisdnCode).subscribe((resp: any) => {
+                this.dataService.authenticateVerify(msisdn, otp).subscribe((resp: any) => {
 
                 // Get JWT token from response header and keep it for the session
                 const userToken = resp.headers.get('x-access-token');
@@ -164,6 +165,8 @@ export class HomeComponent implements OnInit {
 
                 // Deserialize payload
                 const body: any = resp.body; // JSON.parse(response);
+                console.table(body);
+
                 if (body.isEligible !== undefined)
                   this.sessionService.isEligible = body.isEligible;
                 if (body.isSubscribed != undefined)
@@ -175,8 +178,8 @@ export class HomeComponent implements OnInit {
                 //    this.sessionService.user = new User();
                 //  this.sessionService.user.bestScore = body.bestScore;
                 //}
-                if (body.credits > 0)
-                  this.sessionService.credits = body.credits;
+                // if (body.credits > 0)
+                //   this.sessionService.credits = body.credits;
 
                //console.log("hasCredit: " + this.sessionService.hasCredit());
 
@@ -200,7 +203,7 @@ export class HomeComponent implements OnInit {
 
             else {
               // WiFi flow here
-             //console.log('WiFi user flow');
+             console.log('Failed Login Attemp!');
             }
         },
         (err: any) => {

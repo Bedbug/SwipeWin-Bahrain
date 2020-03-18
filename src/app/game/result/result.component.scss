@@ -34,7 +34,7 @@
     box-sizing: border-box;
     margin: 5px auto 15px;
     $border: 3px;
-    background: #1d1d1d;
+    background: #3d016c;
     background-clip: padding-box; /* !importanté */
     border: solid $border transparent; /* !importanté */
     border-radius: 50%;
@@ -170,6 +170,7 @@
 }
 .uk-modal{
     padding-top: 75px;
+    background: rgba(0, 0, 0, 0.0);
   }
 .uk-modal-body{
     padding-top: 5px;
@@ -191,7 +192,7 @@
 }
 
 .uk-modal-dialog {
-  background: #1d1d1d;
+  background: rgba(0, 0, 0, 0.2);
 }
 .button_link_white {
   color: white;
