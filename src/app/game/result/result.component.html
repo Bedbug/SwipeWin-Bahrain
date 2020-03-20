@@ -11,34 +11,100 @@
           <div class="coin__number">{{rightAnswerCount}}</div>
         </div>
         <p>{{answerMessage}}</p>
-        <p style="color: #ff375e; font-size: 18px;">TOTAL POINTS: {{totalPoints}}</p>
-        <p style="font-weight: lighter; margin-bottom: -10px;">You don't have other games left.</p>
-        <p >Come back tommorow!</p>
+        <p style="color: #ff375e; font-size: 18px;">{{ 'END.TOTAL' | translate }} {{totalPoints}}</p>
+        <p style="font-weight: lighter; margin-bottom: -10px;">{{ 'END.NOMORE' | translate }}</p>
+        <p >{{ 'END.COMEBACK' | translate }}</p>
       </div>
-      <!--Won Cash-->
-      <!-- <div class="coinWrap" *ngIf="cashbackAmount > 0">
-        <div class = "cashbackCoin">
-          <div class="coin__number coin__number_light">+{{cashbackAmount}}</div>
-        </div>
-        <p>Cashback Won</p>
-      </div> -->
+      
     </div>
-    <!-- <p class="hint" style="white-space: pre-line; margin-bottom: 0px;">{{FooterText}}</p> -->
-    <!--<p class="hint hint_fail" *ngIf="rightAnswerCount === 0">Ничего страшного, ты всегда можешь попробовать еще</p>-->
-    <!--<p class="hint" style="white-space: pre-line; margin-bottom: 0px;" *ngIf="_gamesPlayed <= 2">Стоимость игры 15 ₽, максимум две дополн. игры в сутки</p>-->
-    <!--If there are available games to buy play another game-->
-    
+
     <br>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="this.session.hasCredit() && _gamesPlayed < 4" (click)="startGame()">{{ 'END.PLAY' | translate }}</button>
-    <button class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"  *ngIf="!this.session.hasCredit() && _gamesPlayed < 4" (click)="OpenOTPPurchase()">{{ 'END.BUY' | translate }}</button>
+    <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
+    <button style = "background-image: linear-gradient(to bottom, #23bd81, #23bd81 16%, #23bd81 66%, #23bd81);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenWinners()">{{ 'END.WINNERS' | translate }}</button>
+    <button style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
+    <button style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button>
     <button class="uk-button uk-button-default uk-width-1-1" *ngIf="_gamesPlayed >= 4"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
-    <!-- <app-button [primary]="true"  *ngIf="_gamesPlayed ==0" class="uk-modal-close" (click)="startGame()" >{{ 'END.PLAY' | translate }}</app-button>
-    <app-button [primary]="true"  *ngIf="_gamesPlayed > 0" class="uk-modal-close" (click)="startGame()" >{{ 'END.BUY' | translate }}</app-button> -->
-    <!--<app-button [primary]="true"  *ngIf="_gamesPlayed >=3" class="uk-modal-close" (click)="startFreeGame()" >Играть в удовольствие</app-button>-->
-    <!--Free Play-->
-    <!--<app-button [outlined]="true" class="uk-modal-close">Свободный режим</app-button>-->
+    
     <!--Return to home page-->
     <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close"  (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
+  </div>
+</div>
+
+<div id="winners" class="uk-flex-top"  uk-modal>
+  <!--Top Text-->
+  <div class="uk-modal-dialog2 uk-modal-body uk-margin-auto-vertical">
+    <h4 style="color: aliceblue;
+    text-align: center;
+    padding: 20px;
+    font-size: 29px;
+    font-weight: bold;
+    text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.52), 0 0 4px rgba(0, 0, 0, 0.59);">stc Winners Club</h4>
+    
+    
+    <br>
+    <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
+    <br><br>
+    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+    <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
+    
+    <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
+    left: 50%;
+    bottom: -35px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 100%;" (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
+  </div>
+</div>
+
+<div id="horoscopes" class="uk-flex-top"  uk-modal>
+  <!--Top Text-->
+  <div class="uk-modal-dialog2 uk-modal-body uk-margin-auto-vertical">
+    <h4 style="color: aliceblue;
+    text-align: center;
+    padding: 20px;
+    font-size: 29px;
+    font-weight: bold;
+    text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.52), 0 0 4px rgba(0, 0, 0, 0.59);">stc Horoscopes</h4>
+    
+    
+    <br>
+    <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
+    <br><br>
+    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+    <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
+    
+    <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
+    left: 50%;
+    bottom: -35px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 100%;" (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
+  </div>
+</div>
+
+<div id="sports" class="uk-flex-top"  uk-modal>
+  <!--Top Text-->
+  <div class="uk-modal-dialog2 uk-modal-body uk-margin-auto-vertical">
+    <h4 style="color: aliceblue;
+    text-align: center;
+    padding: 20px;
+    font-size: 29px;
+    font-weight: bold;
+    text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.52), 0 0 4px rgba(0, 0, 0, 0.59);">stc Sports Club</h4>
+    
+    
+    <br>
+    <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
+    <br><br>
+    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+    <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
+    
+    <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
+    left: 50%;
+    bottom: -35px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+    width: 100%;" (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
   </div>
 </div>
 
@@ -75,19 +141,20 @@
           </div>
           
         </div>
-        </div>
-    
       </div>
-  </div>
-  <div id="error" class="uk-flex-top" uk-modal>
-    <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-      <img src="assets/images/wanted.svg" alt="">
-      <h4>{{ 'END.MES_01' | translate }}</h4>
+    
+    </div>
+</div>
+
+<div id="error" class="uk-flex-top" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
+    <img src="assets/images/wanted.svg" alt="">
+    <h4>{{ 'END.MES_01' | translate }}</h4>
     <pre>{{ 'MESSAGES.MESSAGE_16' | translate }}</pre>
     <!--<p>{{errorMsg}}</p>-->
     <!-- <app-button *ngIf="!logOutBtn" [link_button]="true" class="uk-modal-close">{{ 'MESSAGES.MESSAGE_07' | translate }}</app-button> -->
     
     <app-button  [link_button]="true" class="uk-modal-close" (click)="OpenResultAgain()">{{ 'MESSAGES.MESSAGE_15' | translate }}</app-button>
       
-    </div>
   </div>
+</div>

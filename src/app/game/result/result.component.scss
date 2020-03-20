@@ -168,6 +168,20 @@
   }
   
 }
+
+.header{
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  .uk-navbar-container{
+    background: #45027a;
+    // box-shadow: 0 5px 11px rgba(0, 0, 0, 0.5);
+    height: 67px;
+    border-bottom: 1px solid #d4d0c5;
+  }
+
+}
+
 .uk-modal{
     padding-top: 75px;
     background: rgba(0, 0, 0, 0.0);
@@ -189,6 +203,13 @@
     text-align: center;
     min-height: 44px;
     text-transform: none;
+}
+
+
+
+.uk-modal-dialog2 {
+  background: rgba(0, 0, 0, 0.2);
+  height: 100%;
 }
 
 .uk-modal-dialog {

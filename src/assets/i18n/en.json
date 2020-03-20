@@ -30,6 +30,10 @@
         "SUB_SUC_02": "subscribed to Swipe & Win!",
         "SUB_SUC_03": "Continue",
         "SUB_SUC_04": "Reedem your free round",
+        "DOUBLE": "To double your points, Join now:",
+        "WINNERS": "stc Winners Club",
+        "SPORTS": "stc Sports Club",
+        "HOROSC": "stc Horoscopes",
         "MESSAGE": "You have 1 FREE game/day"
     },
     "BURGER": {
@@ -136,6 +140,13 @@
         "MES_04": "Very Good!",
         "MES_05": "Perfect!",
         "MES_06": "Correct Answers",
+        "TOTAL": "TOTAL POINTS:",
+        "NOMORE": "You don't have other games left.",
+        "COMEBACK": "Come back tommorow!",
+        "DOUBLE": "To double your points, Join now:",
+        "WINNERS": "stc Winners Club",
+        "SPORTS": "stc Sports Club",
+        "HOROSC": "stc Horoscopes",
         "PLAY": "Play Again",
         "BACK": "Back to home page",
         "BUY": "Buy 3 rounds for 2 EGP"

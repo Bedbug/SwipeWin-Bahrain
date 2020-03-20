@@ -47,6 +47,7 @@ export class ReturnhomeComponent implements OnInit {
   // How many (1st free or billable) games the user has played
   public _gamesPlayed = 0;
   
+  public  servicesOpened:boolean = false;
 
   public errorMsg = "";
   public noMoreRealGames = "Unfortunately, your current plan is not allowed to participate.\nTry using another number.";
@@ -234,6 +235,33 @@ export class ReturnhomeComponent implements OnInit {
    //console.log("Reset PIN!");
   }
   returnHome() {
+    this.servicesOpened = false;
+    document.body.classList.remove('winnersBg','horoscopesBg','sportsBg');
     this.router.navigate(['returnhome']);
+  }
+
+  OpenWinners() {
+    this.servicesOpened = true;
+    document.body.classList.add('winnersBg');
+    // var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
+    // modalDefault.hide();
+    var modalWinners = UIkit.modal("#winners", {escClose: false, bgClose: false});
+    modalWinners.show();
+  }
+  OpenHoroscopes() {
+    this.servicesOpened = true;
+    document.body.classList.add('horoscopesBg');
+    // var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
+    // modalDefault.hide();
+    var modalHoroscopes = UIkit.modal("#horoscopes", {escClose: false, bgClose: false});
+    modalHoroscopes.show();
+  }
+  OpenSports() {
+    this.servicesOpened = true;
+    document.body.classList.add('sportsBg');
+    // var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
+    // modalDefault.hide();
+    var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
+    modalSports.show();
   }
 }

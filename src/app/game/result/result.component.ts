@@ -64,6 +64,7 @@ export class ResultComponent implements OnInit {
       console.log(this.session.user);
       bestScore = this.session.user.bestScore;
       bestScoreToday = this.session.user.bestScoreToday;
+
       if(this._rightAnswerCount > bestScoreToday)
       this.session.user.bestScoreToday = this._rightAnswerCount
       if(this._rightAnswerCount > bestScore)
@@ -115,6 +116,29 @@ export class ResultComponent implements OnInit {
         // modal.show();
       });
   }
+
+  OpenWinners() {
+    document.body.classList.add('winnersBg');
+    var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
+    modalDefault.hide();
+    var modalWinners = UIkit.modal("#winners", {escClose: false, bgClose: false});
+    modalWinners.show();
+  }
+  OpenHoroscopes() {
+    document.body.classList.add('horoscopesBg');
+    var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
+    modalDefault.hide();
+    var modalHoroscopes = UIkit.modal("#horoscopes", {escClose: false, bgClose: false});
+    modalHoroscopes.show();
+  }
+  OpenSports() {
+    document.body.classList.add('sportsBg');
+    var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
+    modalDefault.hide();
+    var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
+    modalSports.show();
+  }
+
 
   
   OpenPass(){
@@ -194,11 +218,20 @@ export class ResultComponent implements OnInit {
   
   OpenResultAgain() {
    //console.log("Open Result Again");
+   document.body.classList.add('defaultBg');
+    var modalWinners = UIkit.modal("#winners", {escClose: false, bgClose: false});
+    modalWinners.hide();
+    var modalHoroscopes = UIkit.modal("#horoscopes", {escClose: false, bgClose: false});
+    modalHoroscopes.hide();
+    var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
+    modalSports.hide();
     let modal = UIkit.modal("#result", {escClose: false, bgClose: false});
     modal.show();
   }
   
   returnHome() {
+    document.body.classList.remove('winnersBg','horoscopesBg','sportsBg');
+
     this.router.navigate(['returnhome']);
   }
   

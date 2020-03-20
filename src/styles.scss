@@ -73,6 +73,36 @@ html, body {
   background-image: radial-gradient(circle at 50% 50%, #4f008d, #45027a);
 }
 
+.defaultBg {
+  height: 100%;
+  background-image: radial-gradient(circle at 50% 50%, #4f008d, #45027a);
+}
+
+.winnersBg {
+    height: 100%;
+    background-image: url('/assets/images/winners.jpg');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+.horoscopesBg {
+  height: 100%;
+  background-image: url('/assets/images/horosccopes.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+.sportsBg {
+  height: 100%;
+  background-image: url('/assets/images/stc-sports.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 .uk-logo{
   font-family: 'STC-Regular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
