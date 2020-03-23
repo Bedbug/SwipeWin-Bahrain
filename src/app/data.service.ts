@@ -124,17 +124,15 @@ export class DataService {
       'x-access-token': this.session.token
     });
 
-    const options = {
-      headers: headers,
-      observe: 'response'
-    };
-
     return this.http.post(url,
       {
         language: language,
         serviceName: 'horoscope'
       },
-      options);
+      {
+        headers: headers,
+        observe: 'response'
+      });
   }
 
   subscribeGoingUpWinnersClub(msisdn, language) {
@@ -147,17 +145,15 @@ export class DataService {
       'x-access-token': this.session.token
     });
 
-    const options = {
-      headers: headers,
-      observe: 'response'
-    };
-
     return this.http.post(url,
       {
         language: language,
         serviceName: 'winners'
       },
-      options);
+      {
+        headers: headers,
+        observe: 'response'
+      });
   }
 
   subscribeGoingUpChampionsClub(msisdn, language) {
@@ -170,17 +166,15 @@ export class DataService {
       'x-access-token': this.session.token
     });
 
-    const options = {
-      headers: headers,
-      observe: 'response'
-    };
-
     return this.http.post(url,
       {
         language: language,
         serviceName: 'champions'
       },
-      options);
+      {
+        headers: headers,
+        observe: 'response'
+      });
   }
 
 
