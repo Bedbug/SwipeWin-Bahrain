@@ -113,6 +113,74 @@ export class DataService {
   }
 
 
+
+  subscribeGoingUpHoroscope(msisdn, language) {
+    const url = `${environment.gameServerDomainUrl}/api/user/subscribe`;
+
+    const headers: HttpHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'x-access-token': this.session.token
+    });
+
+    const options = {
+      headers: headers
+    };
+
+    return this.http.post(url,
+      {
+        language: language,
+        serviceName: 'horoscope'
+      },
+      options);
+  }
+
+  subscribeGoingUpWinnersClub(msisdn, language) {
+    const url = `${environment.gameServerDomainUrl}/api/user/subscribe`;
+
+    const headers: HttpHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'x-access-token': this.session.token
+    });
+
+    const options = {
+      headers: headers
+    };
+
+    return this.http.post(url,
+      {
+        language: language,
+        serviceName: 'winners'
+      },
+      options);
+  }
+
+  subscribeGoingUpChampionsClub(msisdn, language) {
+    const url = `${environment.gameServerDomainUrl}/api/user/subscribe`;
+
+    const headers: HttpHeaders = new HttpHeaders({
+      'Accept': 'application/json',
+      'Content-Type': 'application/json',
+      'Access-Control-Allow-Origin': '*',
+      'x-access-token': this.session.token
+    });
+
+    const options = {
+      headers: headers
+    };
+
+    return this.http.post(url,
+      {
+        language: language,
+        serviceName: 'champions'
+      },
+      options);
+  }
+
+
   subscribeOrangeSSO(msisdnCode) {
 
     if (!this.session.gameSettings || !this.session.gameSettings.maintenance || this.session.gameSettings.maintenance.siteDown || this.session.gameSettings.maintenance.noGames) {
