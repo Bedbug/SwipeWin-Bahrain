@@ -42,12 +42,19 @@ export class ResultComponent implements OnInit {
   private _isInTop = true;
   private _bestWeekScore = 0;
   
+  public winnersElig:boolean = true;
+  public sportsElig:boolean = true;
+  public horosElig:boolean = true;
+  public hasDoubledAll:boolean = false;
+
   constructor( public session: SessionService, private router: Router, private translate: TranslateService, private dataService: DataService  ) { }
 
   ngOnInit() {
     if (!this.session.lastGameResults)
       this.router.navigate(['home']);
-      
+    
+     console.table(this.session.lastGameResults);
+
     this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
     this._totalPoints = this.session.lastGameResults.totalScore;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
@@ -56,12 +63,24 @@ export class ResultComponent implements OnInit {
     this._bestWeekScore = this.session.lastGameResults.isBestScoreLastWeek;
     this._isInTop = this.session.lastGameResults.isTop100;
     
+    // Services
+    if(this.session.lastGameResults.subscribedAtWinnersClubAt == null) this.winnersElig = true; else this.winnersElig = false;
+    if(this.session.lastGameResults.subscribedAtSportsClubAt == null) this.sportsElig = true; else this.sportsElig = false;
+    if(this.session.lastGameResults.subscribedAtHoroscopesAt == null) this.horosElig = true; else this.horosElig = false;
+
+    
+    // All Doubled
+    if(this.session.lastGameResults.subscribedAtWinnersClubAt != null && this.session.lastGameResults.subscribedAtSportsClubAt != null && this.session.lastGameResults.subscribedAtHoroscopesAt != null)
+      this.hasDoubledAll = true;
+
+    
+
     // Check Best Score Today
     var bestScore = 0;
     var bestScoreToday = 0;
     
     if(this.session.user!=null) {
-      console.log(this.session.user);
+      // console.log(this.session.user);
       bestScore = this.session.user.bestScore;
       bestScoreToday = this.session.user.bestScoreToday;
 
@@ -124,12 +143,57 @@ export class ResultComponent implements OnInit {
     var modalWinners = UIkit.modal("#winners", {escClose: false, bgClose: false});
     modalWinners.show();
   }
+
+  SubWinners() {
+    this.dataService.subscribeGoingUpWinnersClub(this.session.msisdn, this.translate.currentLang).subscribe((resp: any) => {
+      // Deserialize payload
+      const body: any = resp.body;
+      console.table(body);
+      if (body.errorCode) {
+        // switch (errorCode) {
+        //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+        //   case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010'); break;
+        //   case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
+        //   case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1021': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        // }
+          console.log(body.error);
+      }
+    }, 
+    (err: any) => {
+     
+    });
+  }
+
   OpenHoroscopes() {
     document.body.classList.add('horoscopesBg');
     var modalDefault = UIkit.modal("#result", {escClose: false, bgClose: false});
     modalDefault.hide();
     var modalHoroscopes = UIkit.modal("#horoscopes", {escClose: false, bgClose: false});
     modalHoroscopes.show();
+  }
+
+  SubHoroscopes() {
+    this.dataService.subscribeGoingUpHoroscope(this.session.msisdn, this.translate.currentLang).subscribe((resp: any) => {
+      // Deserialize payload
+      const body: any = resp.body;
+      console.table(body);
+      if (body.errorCode) {
+        // switch (errorCode) {
+        //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+        //   case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010'); break;
+        //   case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
+        //   case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1021': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        // }
+          console.log(body.error);
+      }
+    }, 
+    (err: any) => {
+     
+    });
   }
   OpenSports() {
     document.body.classList.add('sportsBg');
@@ -138,7 +202,28 @@ export class ResultComponent implements OnInit {
     var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
     modalSports.show();
   }
-
+  
+  SubSports() {
+    this.dataService.subscribeGoingUpChampionsClub(this.session.msisdn, this.translate.currentLang).subscribe((resp: any) => {
+      // Deserialize payload
+      const body: any = resp.body;
+      console.table(body);
+      if (body.errorCode) {
+        // switch (errorCode) {
+        //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+        //   case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010'); break;
+        //   case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
+        //   case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1021': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        // }
+          console.log(body.error);
+      }
+    }, 
+    (err: any) => {
+     
+    });
+  }
 
   
   OpenPass(){

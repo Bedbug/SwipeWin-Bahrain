@@ -73,6 +73,13 @@ export class SessionService implements OnDestroy {
   // mtsToken: boolean = true;
   lastGameResults: any = null;
   
+  // Services
+  subscribedAtSportsClubAt: Date = null;
+  subscribedAtWinnersClubAt: Date = null;
+  subscribedAtHoroscopesAt: Date = null;
+  hasDoubledAtSportsClubAt: Date = null;
+  hasDoubledAtWinnersClubAt: Date = null;
+  hasDoubledAtHoroscopesAt: Date = null;
   
   subscription: Subscription;
 

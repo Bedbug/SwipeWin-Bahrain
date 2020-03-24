@@ -19,12 +19,13 @@
     </div>
 
     <br>
-    <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
-    <button style = "background-image: linear-gradient(to bottom, #23bd81, #23bd81 16%, #23bd81 66%, #23bd81);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenWinners()">{{ 'END.WINNERS' | translate }}</button>
-    <button style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
-    <button style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button>
+    <div *ngIf="!this.hasDoubledAll">
+      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
+      <button *ngIf="this.winnersElig" style = "background-image: linear-gradient(to bottom, #23bd81, #23bd81 16%, #23bd81 66%, #23bd81);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenWinners()">{{ 'END.WINNERS' | translate }}</button>
+      <button *ngIf="this.sportsElig" style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
+      <button *ngIf="this.horosElig" style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button>
+    </div>
     <button class="uk-button uk-button-default uk-width-1-1" *ngIf="_gamesPlayed >= 4"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
-    
     <!--Return to home page-->
     <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close"  (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
   </div>

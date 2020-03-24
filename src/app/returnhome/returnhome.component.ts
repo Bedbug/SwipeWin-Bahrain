@@ -4,6 +4,7 @@ import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
 import { User } from '../../models/User';
 import UIkit from 'uikit';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-returnhome',
@@ -37,7 +38,12 @@ export class ReturnhomeComponent implements OnInit {
   get gamesPlayedToday(): number {
     return this.sessionService.gamesPlayed;
   }
-  
+
+  public winnersElig:boolean = true;
+  public sportsElig:boolean = true;
+  public horosElig:boolean = true;
+  public hasDoubledToday:boolean = false;
+
   // Check if already a subscribed player
   private _isSubscribed = false;
   // Check if he has cashback waiting
@@ -54,7 +60,7 @@ export class ReturnhomeComponent implements OnInit {
   public noMoreDemoGames = "No more demo games available! \n Why don't you try the real thing?";
 
   checkCheckBoxvalue(event){
-   //console.log(event.target.checked);
+   
     this._isChecked = event.target.checked;
   }
   
@@ -63,30 +69,20 @@ export class ReturnhomeComponent implements OnInit {
   }
 
   startGame() {
-   //console.log("Games Played: "+ this.gamesPlayed);
-    // if(this._gamesPlayed >= 3) {
-    //   // popup modal with error
-    //   var modal = UIkit.modal("#error");
-    //   this.errorMsg = this.noMoreRealGames;
-    //   modal.show();
-      
-    // }else{
-     //console.log("Play Main Game!");
+   
       this.sessionService.gamesPlayed++;
       this.sessionService.credits--;
       
-     //console.log("this.sessionService.credits: "+this.sessionService.credits);
+     
       this.router.navigate(['game']);
-      // this.router.navigate(['freetimegame']);
-      //this.router.navigate(['demogame']);
-    // }
+     
   }
   
   startFreeGame() {
     this.router.navigate(['freetimegame']);
   }
 
-  constructor(private dataService: DataService, private sessionService: SessionService, private router: Router) { }
+  constructor(private dataService: DataService, private sessionService: SessionService, private router: Router, private translate: TranslateService) { }
 
   ngOnInit() {
 
@@ -104,7 +100,20 @@ export class ReturnhomeComponent implements OnInit {
       
       this._isSubscribed = this.sessionService.isSubscribed;
      
-      console.log("Games Played Today: "+ this.sessionService.gamesPlayed);
+      // Services Check
+      if(this.sessionService.subscribedAtWinnersClubAt == null) this.winnersElig = true; else this.winnersElig = false;
+      if(this.sessionService.subscribedAtSportsClubAt == null) this.sportsElig = true; else this.sportsElig = false;
+      if(this.sessionService.subscribedAtHoroscopesAt == null) this.horosElig = true; else this.horosElig = false;
+      
+      
+      // Doubled Check
+      if(this.sessionService.hasDoubledAtSportsClubAt == null && this.sessionService.hasDoubledAtWinnersClubAt == null && this.sessionService.hasDoubledAtHoroscopesAt == null)
+        this.hasDoubledToday = false;
+        else
+        this.hasDoubledToday = true;
+        
+
+      
      
       // If has not played today open play button
       // If already played so played for today view
@@ -112,16 +121,11 @@ export class ReturnhomeComponent implements OnInit {
       this.dataService.getUserProfile().subscribe( 
         (data: any) => {
 
-          // console.log("response.body "+response.body);
-          // const data:User = response.body;
-         //console.log("data "+ data);
+          
           this.sessionService.user = data;
           this._gamesPlayed = this.sessionService.gamesPlayed;
 
-         //console.log("this.sessionService.user "+this.sessionService.user);
-          
-         //console.log("this._gamesPlayed "+this._gamesPlayed);
-         //console.log("this.sessionService.gamesPlayed "+this.sessionService.gamesPlayed);
+         
 
           this.CheckCredits();
           // Set Properties here
@@ -137,14 +141,14 @@ export class ReturnhomeComponent implements OnInit {
   }
 
   CheckCredits() {
-   //console.log("Checking Credits!");
+   
     
       this.sessionService.hasCredit();
     
   }
 
   OpenOTPPurchase() {
-   //console.log("Open OTP Modal!");
+   
     // Start OTP proccess for new game purchace
     // Send PIN
     // Verify user Input
@@ -156,7 +160,7 @@ export class ReturnhomeComponent implements OnInit {
       modal.show();
     },
       (err: any) => {
-       //console.log("Error with Sending purchase Pin!!!");
+       
         let modal = UIkit.modal("#error");
         modal.show();
       });
@@ -165,7 +169,7 @@ export class ReturnhomeComponent implements OnInit {
   
   OpenPass(){
     this.lblShow = !this.lblShow;
-   //console.log("Hide/Show Password: " + this.lblShow);
+   
     if(this.lblShow)
       this.passType = "password";
     else
@@ -191,11 +195,11 @@ export class ReturnhomeComponent implements OnInit {
       if (body.credits > 0)
         this.sessionService.credits = body.credits;
       
-     //console.log("hasCredit: " +body.credits+" "+ this.sessionService.hasCredit());
+     
     
       this.sessionService.user = body;
       this._gamesPlayed = this.sessionService.gamesPlayed;
-     //console.table(body);
+     
         
       if (this.sessionService.credits > 0) {
         // Burn Credit
@@ -204,14 +208,14 @@ export class ReturnhomeComponent implements OnInit {
     },
       (err: any) => {
         // If Purchase is not Success Open Error Modal and close OTP modal (Then return to home) 
-       //console.log("Error With Purchase!!!", err);
+       
 
         if (err.error) {
           const errorCode = err.error.errorCode;
 
           if (errorCode === 1007) {
             // pin verification problem, pin invalid or wrong
-           //console.log("Error With Pin!!!");
+           
             // If PIN is incorect show a text error
             this.verErrorMes = true;
           }
@@ -232,7 +236,7 @@ export class ReturnhomeComponent implements OnInit {
   }
   
   resetPin() {
-   //console.log("Reset PIN!");
+  
   }
   returnHome() {
     this.servicesOpened = false;
@@ -248,6 +252,30 @@ export class ReturnhomeComponent implements OnInit {
     var modalWinners = UIkit.modal("#winners", {escClose: false, bgClose: false});
     modalWinners.show();
   }
+
+  SubWinners() {
+    this.dataService.subscribeGoingUpWinnersClub(this.sessionService.msisdn, this.translate.currentLang).subscribe((resp: any) => {
+      // Deserialize payload
+      const body: any = resp.body;
+      console.table(body);
+
+      if (body.errorCode) {
+        // switch (errorCode) {
+        //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+        //   case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010'); break;
+        //   case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
+        //   case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1021': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        // }
+          console.log(body.error);
+      }
+    }, 
+    (err: any) => {
+      
+    });
+  }
+
   OpenHoroscopes() {
     this.servicesOpened = true;
     document.body.classList.add('horoscopesBg');
@@ -256,6 +284,30 @@ export class ReturnhomeComponent implements OnInit {
     var modalHoroscopes = UIkit.modal("#horoscopes", {escClose: false, bgClose: false});
     modalHoroscopes.show();
   }
+
+  SubHoroscopes() {
+    this.dataService.subscribeGoingUpHoroscope(this.sessionService.msisdn, this.translate.currentLang).subscribe((resp: any) => {
+      // Deserialize payload
+      const body: any = resp.body;
+      console.table(body);
+
+      if (body.errorCode) {
+        // switch (errorCode) {
+        //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+        //   case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010'); break;
+        //   case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
+        //   case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1021': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        // }
+          console.log(body.error);
+      }
+    }, 
+    (err: any) => {
+      
+    });
+  }
+
   OpenSports() {
     this.servicesOpened = true;
     document.body.classList.add('sportsBg');
@@ -263,5 +315,28 @@ export class ReturnhomeComponent implements OnInit {
     // modalDefault.hide();
     var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
     modalSports.show();
+  }
+  
+  SubSports() {
+    this.dataService.subscribeGoingUpChampionsClub(this.sessionService.msisdn, this.translate.currentLang).subscribe((resp: any) => {
+      // Deserialize payload
+      const body: any = resp.body;
+      console.table(body);
+
+      if (body.errorCode) {
+        // switch (errorCode) {
+        //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
+        //   case '1010': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1010'); break;
+        //   case '1026': this.errorMsg = this.blackListed; this.logOutBtn = true; this.gotofaqBtn = true; console.log('1026'); break;
+        //   case '1023': this.errorMsg = this.noMoreRealGames; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1021': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
+        // }
+          console.log(body.error);
+      }
+    }, 
+    (err: any) => {
+      
+    });
   }
 }

@@ -47,11 +47,11 @@
         <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  !this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button> -->
         <!-- <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && gamesPlayedToday >= 1"  disabled>{{ 'HOME.NOMORE' | translate }}</button> -->
       </div>
-      <div *ngIf="loggedin && gamesPlayedToday >= 1" class="buttons-container uk-container uk-text-center">
+      <div *ngIf="loggedin && gamesPlayedToday >= 1 && !this.hasDoubledToday" class="buttons-container uk-container uk-text-center">
         <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'HOME.DOUBLE' | translate }}</p>
-        <button style = "background-image: linear-gradient(to bottom, #23bd81, #23bd81 16%, #23bd81 66%, #23bd81);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenWinners()">{{ 'HOME.WINNERS' | translate }}</button>
-        <button style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenSports()">{{ 'HOME.SPORTS' | translate }}</button>
-        <button style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenHoroscopes()">{{ 'HOME.HOROSC' | translate }}</button>
+        <button *ngIf="this.winnersElig" style = "background-image: linear-gradient(to bottom, #23bd81, #23bd81 16%, #23bd81 66%, #23bd81);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenWinners()">{{ 'HOME.WINNERS' | translate }}</button>
+        <button *ngIf="this.sportsElig" style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenSports()">{{ 'HOME.SPORTS' | translate }}</button>
+        <button *ngIf="this.horosElig" style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenHoroscopes()">{{ 'HOME.HOROSC' | translate }}</button>
       </div>
       
       
@@ -73,7 +73,7 @@
       <br>
       <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
       <br><br>
-      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubHoroscopes()">Subscribe</button>
       <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
       
       <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
@@ -99,7 +99,7 @@
       <br>
       <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
       <br><br>
-      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubSports()">Subscribe</button>
       <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
       
       <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
@@ -125,7 +125,7 @@
       <br>
       <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
       <br><br>
-      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubWinners()">Subscribe</button>
       <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
       
       <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;

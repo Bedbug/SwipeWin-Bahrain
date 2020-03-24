@@ -150,7 +150,7 @@ export class HomeComponent implements OnInit {
             else if (msisdn && otp) {
               // Check For valid OTTP
 
-             //console.log('Mobile /SMS /USSD user flow');
+             
               this.AutoLogin = true;
 
               // this.dataService.authenticateOrangeSSO(msisdnCode).subscribe((resp: any) => {
@@ -174,16 +174,17 @@ export class HomeComponent implements OnInit {
                   this.sessionService.isSubscribed = body.isSubscribed;
                 if (body.gamesPlayedToday !== undefined)
                   this.sessionService.gamesPlayed = body.gamesPlayedToday;
-                //if (body.bestScore !== undefined) {
-                //  if (!this.sessionService.user)
-                //    this.sessionService.user = new User();
-                //  this.sessionService.user.bestScore = body.bestScore;
-                //}
-                // if (body.credits > 0)
-                //   this.sessionService.credits = body.credits;
-
-               //console.log("hasCredit: " + this.sessionService.hasCredit());
-
+               
+                  // Services
+                  this.sessionService.subscribedAtSportsClubAt = body.subscribedAtSportsClubAt;
+                  this.sessionService.subscribedAtWinnersClubAt = body.subscribedAtWinnersClubAt;
+                  this.sessionService.subscribedAtHoroscopesAt = body.subscribedAtHoroscopesAt;
+                  console.log(this.sessionService.subscribedAtHoroscopesAt);
+                  // Doubled
+                  this.sessionService.hasDoubledAtSportsClubAt = body.hasDoubledAtSportsClubAt;
+                  this.sessionService.hasDoubledAtWinnersClubAt = body.hasDoubledAtWinnersClubAt;
+                  this.sessionService.hasDoubledAtHoroscopesAt = body.hasDoubledAtHoroscopesAt;
+                  console.log(this.sessionService.hasDoubledAtHoroscopesAt);
 
                 // Chage view state
                 this.loggedin = true;
