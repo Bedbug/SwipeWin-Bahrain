@@ -53,7 +53,7 @@
         <button *ngIf="this.sportsElig" style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenSports()">{{ 'HOME.SPORTS' | translate }}</button>
         <button *ngIf="this.horosElig" style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close" (click)="OpenHoroscopes()">{{ 'HOME.HOROSC' | translate }}</button>
       </div>
-      
+      <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && gamesPlayedToday >= 1 && this.hasDoubledToday"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
       
     </div>
     </div>

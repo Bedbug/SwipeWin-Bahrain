@@ -17,8 +17,8 @@ export class ResultComponent implements OnInit {
   get cashbackAmount(): number {
     return this._cashbackAmount;
   }
-  get rightAnswerCount(): number {
-    return this._rightAnswerCount;
+  get getScore(): number {
+    return this._gameScore;
   }
   get totalPoints(): number {
     return this._totalPoints;
@@ -33,7 +33,7 @@ export class ResultComponent implements OnInit {
 
   private _firstTime = false;
   public _gamesPlayed = 2;
-  private _rightAnswerCount = 10;
+  private _gameScore = 10;
   private _totalPoints = 10;
   private _cashbackAmount = 0;
   private _secondVariant = true;
@@ -55,7 +55,7 @@ export class ResultComponent implements OnInit {
     
      console.table(this.session.lastGameResults);
 
-    this._rightAnswerCount = this.session.lastGameResults.correctAnswers;
+    this._gameScore = this.session.lastGameResults.score;
     this._totalPoints = this.session.lastGameResults.totalScore;
     this._cashbackAmount = this.session.lastGameResults.cashbackWon || 0;
     this._firstTime = this.session.gamesPlayed == 1;
@@ -84,10 +84,10 @@ export class ResultComponent implements OnInit {
       bestScore = this.session.user.bestScore;
       bestScoreToday = this.session.user.bestScoreToday;
 
-      if(this._rightAnswerCount > bestScoreToday)
-      this.session.user.bestScoreToday = this._rightAnswerCount
-      if(this._rightAnswerCount > bestScore)
-        this.session.user.bestScore = this._rightAnswerCount
+      if(this._gameScore > bestScoreToday)
+      this.session.user.bestScoreToday = this._gameScore
+      if(this._gameScore > bestScore)
+        this.session.user.bestScore = this._gameScore
     }
     
    //console.log("Games Played: "+ this._gamesPlayed);
@@ -148,7 +148,13 @@ export class ResultComponent implements OnInit {
     this.dataService.subscribeGoingUpWinnersClub(this.session.msisdn, this.translate.currentLang).subscribe((resp: any) => {
       // Deserialize payload
       const body: any = resp.body;
+
+      this._totalPoints = body.totalScore;
       console.table(body);
+      this.hasDoubledAll = true;
+      this.session.subscribedAtWinnersClubAt = new Date();
+      this.session.hasDoubledAtWinnersClubAt = new Date();
+      this.OpenResultAgain();
       if (body.errorCode) {
         // switch (errorCode) {
         //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
@@ -178,7 +184,13 @@ export class ResultComponent implements OnInit {
     this.dataService.subscribeGoingUpHoroscope(this.session.msisdn, this.translate.currentLang).subscribe((resp: any) => {
       // Deserialize payload
       const body: any = resp.body;
+      this._totalPoints = body.totalScore;
       console.table(body);
+      this.hasDoubledAll = true;
+      this.session.subscribedAtHoroscopesAt = new Date();
+      this.session.hasDoubledAtHoroscopesAt = new Date();
+      this.OpenResultAgain();
+
       if (body.errorCode) {
         // switch (errorCode) {
         //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
@@ -202,12 +214,18 @@ export class ResultComponent implements OnInit {
     var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
     modalSports.show();
   }
-  
+
   SubSports() {
     this.dataService.subscribeGoingUpChampionsClub(this.session.msisdn, this.translate.currentLang).subscribe((resp: any) => {
       // Deserialize payload
       const body: any = resp.body;
+      this._totalPoints = body.totalScore;
       console.table(body);
+      this.hasDoubledAll = true;
+      this.session.subscribedAtSportsClubAt = new Date();
+      this.session.hasDoubledAtSportsClubAt = new Date();
+      this.OpenResultAgain();
+
       if (body.errorCode) {
         // switch (errorCode) {
         //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
@@ -303,7 +321,7 @@ export class ResultComponent implements OnInit {
   
   OpenResultAgain() {
    //console.log("Open Result Again");
-   document.body.classList.add('defaultBg');
+   document.body.classList.remove('winnersBg','horoscopesBg','sportsBg');
     var modalWinners = UIkit.modal("#winners", {escClose: false, bgClose: false});
     modalWinners.hide();
     var modalHoroscopes = UIkit.modal("#horoscopes", {escClose: false, bgClose: false});
@@ -329,26 +347,26 @@ export class ResultComponent implements OnInit {
   }
   
   get TopText(): string {
-    if(this._rightAnswerCount == 0)
+    if(this._gameScore == 0)
       return this.translate.instant('END.MES_01')
-    if(this._rightAnswerCount == 1)
+    if(this._gameScore == 1)
       return this.translate.instant('END.MES_02')
-    if(this._rightAnswerCount >= 2 && this._rightAnswerCount <= 4)
+    if(this._gameScore >= 2 && this._gameScore <= 4)
       return this.translate.instant('END.MES_03')
-    if(this._rightAnswerCount >= 5 && this._rightAnswerCount <= 9)
+    if(this._gameScore >= 5 && this._gameScore <= 9)
       return this.translate.instant('END.MES_04')
-    if(this._rightAnswerCount >= 10)
+    if(this._gameScore >= 10)
       return this.translate.instant('END.MES_05')
   }
   
   get answerMessage(): string {
-    if(this._rightAnswerCount == 0)
+    if(this._gameScore == 0)
       return this.translate.instant('END.MES_06')
-    if(this._rightAnswerCount == 1)
+    if(this._gameScore == 1)
       return this.translate.instant('END.MES_06')
-    if(this._rightAnswerCount >= 2 && this._rightAnswerCount <= 4)
+    if(this._gameScore >= 2 && this._gameScore <= 4)
       return this.translate.instant('END.MES_06')
-    if(this._rightAnswerCount >= 5 )
+    if(this._gameScore >= 5 )
       return this.translate.instant('END.MES_06')
     // if(this._rightAnswerCount >= 10)
     //   return "Прекрасно!"
@@ -361,14 +379,14 @@ export class ResultComponent implements OnInit {
     // }else 
     if(this._gamesPlayed == 1){
       return "Keep playing for today’s 10,000$"
-    }else if(this._rightAnswerCount <= this._bestWeekScore) {
+    }else if(this._gameScore <= this._bestWeekScore) {
       return "Keep playing for today’s 10,000$"
     }else if(this._isInTop){
         if(this._gamesPlayed <=2)
           return "Keep playing for today’s 10,000$"
         else
           return "Keep playing for today’s 10,000$"
-    }else if(this._rightAnswerCount > this._bestWeekScore){
+    }else if(this._gameScore > this._bestWeekScore){
         if(this._gamesPlayed <=2)
           return "Keep playing for today’s 10,000$"
         else

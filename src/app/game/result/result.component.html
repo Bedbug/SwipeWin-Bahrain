@@ -8,7 +8,7 @@
       <!--Correct Answers-->
       <div class="coinWrap">
         <div class="coin">
-          <div class="coin__number">{{rightAnswerCount}}</div>
+          <div class="coin__number">{{getScore}}</div>
         </div>
         <p>{{answerMessage}}</p>
         <p style="color: #ff375e; font-size: 18px;">{{ 'END.TOTAL' | translate }} {{totalPoints}}</p>
@@ -45,7 +45,7 @@
     <br>
     <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
     <br><br>
-    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubWinners()">Subscribe</button>
     <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
     
     <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
@@ -71,7 +71,7 @@
     <br>
     <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
     <br><br>
-    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubHoroscopes()">Subscribe</button>
     <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
     
     <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
@@ -97,7 +97,7 @@
     <br>
     <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
     <br><br>
-    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="startGame()">Subscribe</button>
+    <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubSports()">Subscribe</button>
     <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
     
     <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;

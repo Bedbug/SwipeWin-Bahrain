@@ -258,7 +258,8 @@ export class ReturnhomeComponent implements OnInit {
       // Deserialize payload
       const body: any = resp.body;
       console.table(body);
-
+      this.hasDoubledToday = true;
+      this.returnHome();
       if (body.errorCode) {
         // switch (errorCode) {
         //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
@@ -290,7 +291,8 @@ export class ReturnhomeComponent implements OnInit {
       // Deserialize payload
       const body: any = resp.body;
       console.table(body);
-
+      this.hasDoubledToday = true;
+      this.returnHome();
       if (body.errorCode) {
         // switch (errorCode) {
         //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
@@ -316,13 +318,14 @@ export class ReturnhomeComponent implements OnInit {
     var modalSports = UIkit.modal("#sports", {escClose: false, bgClose: false});
     modalSports.show();
   }
-  
+
   SubSports() {
     this.dataService.subscribeGoingUpChampionsClub(this.sessionService.msisdn, this.translate.currentLang).subscribe((resp: any) => {
       // Deserialize payload
       const body: any = resp.body;
       console.table(body);
-
+      this.hasDoubledToday = true;
+      this.returnHome();
       if (body.errorCode) {
         // switch (errorCode) {
         //   case '401': this.errorMsg = this.authError; this.logOutBtn = true; this.gotofaqBtn = true; console.log('401'); break;
