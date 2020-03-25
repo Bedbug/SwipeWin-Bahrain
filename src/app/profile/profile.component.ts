@@ -77,13 +77,13 @@ export class ProfileComponent implements OnInit {
       this.dataService.getUserProfile().subscribe( 
         (data: any) => {
 
-
+          console.table(data);
           this.sessionService.user = data;
           this.userName = data.username;
           this.sessionService.credits = data.credits;
           this._totalGamesCount = data.gamesPlayed;
           this._bestResultAllTime = data.bestScore;
-          this._bestResultToday = data.bestScoreToday;
+          this._bestResultToday = data.totalScore;
           this._daysInGame = data.totalDaysPlaying;
           
           if(this._daysInGame == null)
