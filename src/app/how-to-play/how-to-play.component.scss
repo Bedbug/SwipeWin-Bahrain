@@ -8,20 +8,20 @@
   font-stretch: normal;
   line-height: 1.43;
   letter-spacing: normal;
-  color: #fff;
+  color: rgb(5, 5, 5);
   padding: 16px;
   margin: 0px;
   text-align: center;
   .item {
     margin-bottom: 15px;
-    font-size: 17px;
-    font-weight: bold;
+    font-size: 15px;
+    font-weight: 100;
     font-style: normal;
     font-stretch: normal;
     line-height: normal;
     letter-spacing: normal;
     text-align: center;
-    color: #fff;
+    color: black;
     .icon {
       width: 40px;
       height: 40px;
@@ -29,9 +29,22 @@
   }
 }
 
+.list-wrapper{
+  // background-image: radial-gradient(circle at 50% 40%, #77329e, #77329d);
+  background-color: #fff;
+    border-radius: 5px;
+    max-width: 350px;
+    height: 100%;
+    margin: 15px;
+    /* margin-left: 20%; */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
 .icon{
   width: 40px;
   padding-bottom: 5px;
+  margin: 10px;
 }
  .message-container{
     font-size: 17px;

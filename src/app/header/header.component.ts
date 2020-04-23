@@ -4,7 +4,6 @@ import { filter } from 'rxjs/operators';
 import { SessionService } from '../session.service';
 import { Router } from '@angular/router';
 import {TranslateService} from '@ngx-translate/core';
-import { ActivatedRoute } from "@angular/router";
 
 declare const UIkit: any;
 
@@ -18,39 +17,22 @@ export class HeaderComponent implements OnInit {
   url: string;
   pushed = false;
   alignAllLeft = true;
-  lang: string;
+
   public mobileMenuState = false;
   public menuIconPath = 'menu';
 
-  constructor(private session: SessionService, private router: Router,public translate: TranslateService, private activatedRoute: ActivatedRoute) 
+  constructor(private session: SessionService, private router: Router,public translate: TranslateService) 
   {
     // this.url = router.url;
   }
 
   ngOnInit() {
-    // // Checking Lang
-    // this.activatedRoute.queryParams.subscribe(params => {
-    //   // console.table(params);
-    //   this.lang = params["lang"];
-    //   if(this.lang != null){
-    //     this.lang =  this.lang.toLowerCase();
-    //     // this.translate.setDefaultLang(this.lang);
-    //     this.translate.use(this.lang);
-    //   }
-    //   console.log("Language Selected: "+this.lang);
-    // })
-
+    // Checking Lang
     if(this.translate.currentLang == "ar") {
       this.alignAllLeft = false;
     } else {
       this.alignAllLeft = true;
     }
-
-    
-
-    console.log(this.alignAllLeft);
-    console.log(this.translate.currentLang);
-
     let offcanvas = UIkit.offcanvas("#offcanvas-nav");
     // console.log(offcanvas);
     offcanvas.$props.flip =  this.alignAllLeft;
