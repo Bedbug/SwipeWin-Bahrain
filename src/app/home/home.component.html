@@ -3,7 +3,7 @@
 </div> -->
 
 
-<div class="slideshow-container" *ngIf="!openVerify && !openSubSuccess" uk-slideshow="animation: fade; min-height: 400; max-height: 400; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
+<div class="slideshow-container" *ngIf="!openVerify && !openSubSuccess" uk-slideshow="animation: fade; min-height: 550; max-height: 550; autoplay: true; autoplay-interval: 2000; pause-on-hover: false;" >
     
   <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
     
@@ -11,6 +11,36 @@
       
       
       <li class="list-wrapper">
+        
+        <div class="uk-position-center uk-position-small uk-text-center uk-light">
+            <div class="vector">
+                <img class="icon" style="padding: 39px;
+                margin-top: -101px;
+                margin-bottom: 50px;" src="assets/images/daily_prize.jpg" alt=""/>
+              </div>
+              <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_03' | translate"></span><br>
+                <span style="font-weight: bold; font-size: 25px; color: #000000;">{{ 'HOME.CAR_03b' | translate }}</span>
+            </div>
+         
+        </div>
+      </li>
+      <li class="list-wrapper">
+        
+        <div class="uk-position-center uk-position-small uk-text-center uk-light">
+            <div class="vector">
+                <img class="icon" style="padding: 39px;
+                margin-top: -101px;
+                margin-bottom: 50px;" src="assets/images/daily_prize.jpg" alt=""/>
+              </div>
+              <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_03' | translate"></span><br>
+                <span style="font-weight: bold; font-size: 25px; color: #000000;">{{ 'HOME.CAR_03b' | translate }}</span>
+            </div>
+         
+        </div>
+      </li>
+      <!-- <li class="list-wrapper">
         
         <div class="uk-position-center uk-position-small uk-text-center uk-light">
             <div class="vector">
@@ -22,8 +52,7 @@
             </div>
          
         </div>
-      </li>
-      
+      </li> -->
       
     </ul>
 
@@ -208,7 +237,7 @@
   
   <div id="error" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-      <img src="assets/images/wanted.svg" alt="">
+      <img  style="width: 75px;" src="assets/images/wanted.svg" alt="">
       <h4>{{ 'END.MES_01' | translate }}</h4>
     <pre>{{ errorMsg | translate }}</pre>
     <!--<p>{{errorMsg}}</p>-->

@@ -15,6 +15,8 @@ export class ButtonComponent implements OnInit {
   @Input() link_button = false;
   @Input() outlined = false;
   @Input() link_button_white = false;
+  @Input() link_button_black = false;
+  @Input() link_button_purple = false;
   @Output() clicked: EventEmitter<any> = new EventEmitter();
 
   onClick(e: Event) {

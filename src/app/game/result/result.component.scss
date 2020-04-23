@@ -1,7 +1,7 @@
 #result {
   
   h4 {
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     font-size: 30px;
     text-align: center;
     font-weight: bold;
@@ -14,7 +14,7 @@
     p {
       font-size: 14px;
       font-weight: bold;
-      color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
       margin: 10px 0;
     }
   }
@@ -28,13 +28,13 @@
   .coin {
     display: flex;
     align-items: center;
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     position: relative;
     box-sizing: border-box;
     margin: 5px auto 15px;
-    $border: 3px;
-    background: #3d016c;
+    $border: 4px;
+    background: #ffffff;
     background-clip: padding-box; /* !importanté */
     border: solid $border transparent; /* !importanté */
     border-radius: 50%;
@@ -45,12 +45,12 @@
       z-index: -1;
       margin: -$border; /* !importanté */
       border-radius: inherit; /* !importanté */
-      background: linear-gradient(to top, #ff375e, #ff375e);
+      background: linear-gradient(to top, #4f008d, #4f008d);
     }
     &__number {
       font-size: 33px;
       text-align: center;
-      color: #ff375e;
+      color: #000000;
       line-height: 80px;
       width: 80px;
       font-weight: bold;
@@ -205,15 +205,17 @@
     text-transform: none;
 }
 
-
+.uk-border-rounded {
+  border-radius: 0px;
+}
 
 .uk-modal-dialog2 {
-  background: rgba(0, 0, 0, 0.2);
+  background:#ffffff3b;
   height: 100%;
 }
 
 .uk-modal-dialog {
-  background: rgba(0, 0, 0, 0.2);
+  background: rgb(250, 248, 248);
 }
 .button_link_white {
   color: white;

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>menu_game</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="menu_game" fill="#4f008d">
+            <path d="M19.182,0 C20.693,0 21.91,1.219 21.995,2.735 L22,2.904 L22,19.095 C22,20.633 20.837,21.906 19.349,21.995 L19.182,22 L14,22 L14,14.282 L11,11.389 L8,14.282 L8,22 L0,22 L0,2.904 C0,1.367 1.163,0.094 2.652,0.005 L2.818,0 L19.182,0 Z M19.182,2 L2.818,2 C2.411,2 2.058,2.337 2.007,2.789 L2,2.904 L2,20 L6,20 L6,13.433 L11,8.61 L16,13.433 L16,20 L19.182,20 C19.589,20 19.942,19.663 19.994,19.211 L20,19.095 L20,2.904 C20,2.395 19.623,2 19.182,2 L19.182,2 Z M10,7 L12,7 L12,5 L10,5 L10,7 Z" id="Fill-1"></path>
+        </g>
+    </g>
+</svg>

@@ -99,6 +99,7 @@ export class HomeComponent implements OnInit {
     let msisdnCode = null;
     let msisdn = null;
     let otp = null;
+    let paramsLang = null;
 
     // 1. Check OTP & MSISDN, if success continue, if false so error message
     // 2. If True, check remaining games, if 1 open play button, if 0 open come back tommorow
@@ -111,6 +112,7 @@ export class HomeComponent implements OnInit {
         msisdnCode = params.get("ui");
         msisdn = params.get("msisdn");
         otp = params.get("otp");
+        paramsLang = params.get("lang");
         console.log("MSISDN: " + msisdn, "OTP: "+ otp);
         this.sessionService.msisdnCode = msisdnCode;
         // this._showButtons = true;
@@ -148,9 +150,18 @@ export class HomeComponent implements OnInit {
 
             // Else, Determine if this is the mobile/Ussd/Sms user flow or the WiFi one
             else if (msisdn && otp) {
-              // Check For valid OTTP
 
-             
+              // Check For Language change
+              // if(paramsLang) {
+              //   lang:String;
+              //   this.lang = paramsLang; console.log(this.lang);
+              //   this.lang.toLowerCase(); console.log(this.lang);
+
+              //   this.translate.currentLang == this.lang.toLowerCase();
+              // }
+
+
+              // Check For valid OTTP
               this.AutoLogin = true;
 
               // this.dataService.authenticateOrangeSSO(msisdnCode).subscribe((resp: any) => {
@@ -166,7 +177,7 @@ export class HomeComponent implements OnInit {
 
                 // Deserialize payload
                 const body: any = resp.body; // JSON.parse(response);
-                console.table(body);
+                // console.table(body);
 
                 if (body.isEligible !== undefined)
                   this.sessionService.isEligible = body.isEligible;
@@ -179,7 +190,7 @@ export class HomeComponent implements OnInit {
                   this.sessionService.subscribedAtSportsClubAt = body.subscribedAtSportsClubAt;
                   this.sessionService.subscribedAtWinnersClubAt = body.subscribedAtWinnersClubAt;
                   this.sessionService.subscribedAtHoroscopesAt = body.subscribedAtHoroscopesAt;
-                  console.log(this.sessionService.subscribedAtHoroscopesAt);
+                  // console.log(this.sessionService.subscribedAtHoroscopesAt);
                   // Doubled
                   this.sessionService.hasDoubledAtSportsClubAt = body.hasDoubledAtSportsClubAt;
                   this.sessionService.hasDoubledAtWinnersClubAt = body.hasDoubledAtWinnersClubAt;

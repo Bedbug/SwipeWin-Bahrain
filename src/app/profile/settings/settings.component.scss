@@ -7,6 +7,32 @@
       width: 100%;
     }
   }
+  .text-input {
+    padding: 0 16px;
+    label {
+      text-align: left;
+      color: #000000;
+      font-weight: bold;
+    }
+    input {
+      border-radius: 0px;
+    }
+  
+  }
+  .list-wrapper{
+    // background-image: radial-gradient(circle at 50% 40%, #77329e, #77329d);
+    background-color: #fff;
+      border-radius: 5px;
+      max-width: 350px;
+      height: 100%;
+      margin: 15px;
+      /* margin-left: 20%; */
+      text-align: center;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: 20px;
+    padding-top: 20px;
+  }
 
   .sex-selector {
     margin: 18px;
@@ -29,7 +55,7 @@
     }
   }
   .label {
-    color: #ffffff;
+    color: #000000;
     text-align: left;
     font-weight: bold;
   }
@@ -141,4 +167,6 @@
   background-image: linear-gradient(to bottom, #ffffff, #fcfcfc 19%, #efefef 41%, #f0f0f0 88%, #ffffff);
   color: #ffffff;
 }
+
+
 

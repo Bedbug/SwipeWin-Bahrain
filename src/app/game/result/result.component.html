@@ -11,7 +11,9 @@
           <div class="coin__number">{{getScore}}</div>
         </div>
         <p>{{answerMessage}}</p>
-        <p style="color: #ff375e; font-size: 18px;">{{ 'END.TOTAL' | translate }} {{totalPoints}}</p>
+        <p style="color: #000000;
+                  font-size: 22px;
+                  font-weight: bolder;">{{ 'END.TOTAL' | translate }} {{totalPoints}}</p>
         <p style="font-weight: lighter; margin-bottom: -10px;">{{ 'END.NOMORE' | translate }}</p>
         <p >{{ 'END.COMEBACK' | translate }}</p>
       </div>
@@ -20,7 +22,7 @@
 
     <br>
     <div *ngIf="!this.hasDoubledAll">
-      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
+      <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
       <button *ngIf="this.winnersElig" style = "background-image: linear-gradient(to bottom, #23bd81, #23bd81 16%, #23bd81 66%, #23bd81);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenWinners()">{{ 'END.WINNERS' | translate }}</button>
       <button *ngIf="this.sportsElig" style = "background-image: linear-gradient(to bottom, #ffd744, #ffd744 16%, #ffd744 66%, #ffd744);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
       <button *ngIf="this.horosElig" style = "background-image: linear-gradient(to bottom, #fb5b37, #fb5b37 16%, #fb5b37 66%, #fb5b37);" class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button>
@@ -45,6 +47,15 @@
     <br>
     <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
     <br><br>
+    <h4 style="color:white;font-size: medium;">Insert your phone number</h4> 
+    <form >
+      <div class="uk-margin" >
+          <div class="uk-inline uk-width-1-1 ">
+              <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+              <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}"> 
+          </div>
+      </div>
+    </form>
     <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubWinners()">Subscribe</button>
     <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
     
@@ -71,6 +82,15 @@
     <br>
     <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
     <br><br>
+    <h4 style="color:white; font-size: medium;">Insert your phone number</h4> 
+    <form >
+      <div class="uk-margin" >
+          <div class="uk-inline uk-width-1-1 ">
+              <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+              <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}"> 
+          </div>
+      </div>
+    </form>
     <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubHoroscopes()">Subscribe</button>
     <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
     
@@ -97,6 +117,15 @@
     <br>
     <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
     <br><br>
+    <h4 style="color:white;font-size: medium;">Insert your phone number</h4> 
+    <form >
+      <div class="uk-margin" >
+          <div class="uk-inline uk-width-1-1 ">
+              <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+              <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}"> 
+          </div>
+      </div>
+    </form>
     <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubSports()">Subscribe</button>
     <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
     

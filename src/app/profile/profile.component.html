@@ -1,20 +1,12 @@
 <div class="header_title">
   <span class="inside_text">{{ 'PROFILE.PROFILE' | translate }}</span>
 </div>
-<div class="profile-component uk-text-center" *ngIf="!isSettingsShowable()" style="max-width: 600px;
+<div class=" profile-component uk-text-center" *ngIf="!isSettingsShowable()" style="max-width: 600px;
     margin-left: auto;
     margin-right: auto;">
-  <!--<div class="avatar">-->
-  <!--  <img src="assets/images/avatar.svg" alt=""/>-->
-  <!--</div>-->
-  <!--<div class="avatar" style="margin: 130px;">-->
-  <!--<ngx-avatar *ngIf="showAvatar" class="my-avatar" style="position: absolute; left: 50%; transform: translate(-50%, -115%); max-height:100px" -->
   
-  <!--  src={{avatarPic}} name={{userName}} -->
-  <!--  size="100" [round]="true">-->
-  <!--</ngx-avatar>-->
-  <!--<img ngxGravatar class="my-avatar" style="position: absolute; left: 50%; transform: translate(-50%, -115%); max-height:100px"  size="100" src="{{avatarPic}}">-->
-  <!--</div>-->
+
+<div class="list-wrapper">
   <div class="avatar" style="margin: 40px;">
   <!--<ngx-avatar *ngIf="showAvatar" class="my-avatar" style="position: absolute; left: 50%; transform: translate(-50%, -115%); max-height:100px" -->
   
@@ -57,12 +49,14 @@
   <div class="days-summary" uk-grid >
     <div class="uk-width-expand label">{{ 'PROFILE.DAYS' | translate }}</div>
     <!--Games in the game-->
-    <div class="uk-width-auto" style="font-size: 20px;font-weight: bold;color: #ff375e;">{{_daysInGame}}</div>
+    <div class="uk-width-auto" style="font-size: 25px;font-weight: bold;color: #4f008d;">{{_daysInGame}}</div>
   </div>
+</div>
+
   <div class="buttons-container uk-container uk-text-center">
     <!--Go to Settings-->
     <button class="uk-button uk-button-default play-button uk-width-1-1" (click)="showSettingsView()">{{ 'PROFILE.SETTINGS' | translate }}</button>
-    <app-button [link_button]="true" [link_button_white]="true"  (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button>
+    <app-button [link_button]="true" [link_button_black]="true"  (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button>
   </div>
   <br>
   
@@ -82,10 +76,10 @@
 
  <div id="error" class="uk-flex-top" uk-modal>
     <div class="uk-modal-dialog uk-modal-body uk-margin-auto-vertical">
-      <img src="assets/images/wanted.svg" alt="">
+      <img style="width: 75px;" src="assets/images/wanted.svg" alt="">
       <h4>{{ 'MESSAGES.MESSAGE_01' | translate }}</h4>
       <p>{{ 'MESSAGES.MESSAGE_02' | translate }}</p>
       <!--<p>{{errorMsg}}</p>-->
-      <app-button [link_button]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button>
+      <app-button [link_button_purple]="true" class="uk-modal-close" (click)="goHome()">{{ 'PROFILE.BACK' | translate }}</app-button>
     </div>
   </div>

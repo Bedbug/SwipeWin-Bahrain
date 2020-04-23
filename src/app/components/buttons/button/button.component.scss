@@ -35,6 +35,16 @@
       margin-bottom: 12px;
       text-decoration:underline;
     }
+    &_black {
+      color: rgb(0, 0, 0);
+      margin-bottom: 12px;
+      text-decoration:underline;
+    }
+    &_purple {
+      color: #4f008d;
+      margin-bottom: 12px;
+      text-decoration:underline;
+    }
   }
   &_outlined {
     background-color: #fff;

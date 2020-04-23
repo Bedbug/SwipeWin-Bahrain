@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>swipe_menu</title>
+    <desc>Created with Sketch.</desc>
+    <g id="swipe_menu" stroke="none" stroke-width="1" fill="#4f008d" fill-rule="evenodd">
+        <g id="Group" transform="translate(3.000000, 3.000000)" fill="#4f008d">
+            <rect id="Rectangle" x="0" y="0" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy" x="7" y="0" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy-2" x="14" y="-4.4408921e-16" width="4" height="4"></rect>
+            <rect id="Rectangle" x="0" y="7" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy-3" x="0" y="14" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy" x="7" y="7" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy-4" x="7" y="14" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy-2" x="14" y="7" width="4" height="4"></rect>
+            <rect id="Rectangle-Copy-5" x="14" y="14" width="4" height="4"></rect>
+        </g>
+    </g>
+</svg>

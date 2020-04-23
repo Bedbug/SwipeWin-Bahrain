@@ -20,7 +20,6 @@
       line-height: 1.43;
       letter-spacing: normal;
       color: #939393;
-      background-color: #fef6fe;
       margin: -11px;
       padding: 12px;
       box-shadow: inset 0 4px 10px -8px rgba(0, 0, 0, 0.5);
@@ -28,12 +27,12 @@
   }
 }
 .uk-accordion-title:before {
-  background-color: #9b9b9b;
+  background-color: #4f008d;
   mask: url('../../../node_modules/uikit/src/images/icons/chevron-down.svg') no-repeat 50% 50%;
 }
 .uk-open {
   .uk-accordion-title:before {
-    background-color: #9b9b9b;
+    background-color: #4f008d;
     mask: url('../../../node_modules/uikit/src/images/icons/chevron-up.svg') no-repeat 50% 50%;
   }
 }
@@ -97,11 +96,11 @@
 
 .uk-accordion-title {
   display: block;
-  font-size: 1.25rem;
-  line-height: 1.4;
-  color: #ff375e;
-  overflow: hidden;
-  font-weight: bold;
+    font-size: 16px;
+    line-height: 1.4;
+    color: #000000;
+    overflow: hidden;
+    
 }
 
 .direct_right{

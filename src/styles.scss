@@ -70,12 +70,12 @@ html, body {
   }
   height: 100%;
   // background-image: radial-gradient(circle at 50% 50%, #007cff, #002094);
-  background-image: radial-gradient(circle at 50% 50%, #4f008d, #45027a);
+  background-image: radial-gradient(circle at 50% 50%, #f0f0f0, #f0f0f0);
 }
 
 .defaultBg {
   height: 100%;
-  background-image: radial-gradient(circle at 50% 50%, #4f008d, #45027a);
+  background-image: radial-gradient(circle at 50% 50%, #f0f0f0, #f0f0f0);
 }
 
 .winnersBg {
@@ -106,9 +106,18 @@ html, body {
 .uk-logo{
   font-family: 'STC-Regular', -apple-system, BlinkMacSystemFont, 'Roboto', 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 }
+.uk-dotnav {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 15px;
+  border-radius: 0px;
+  padding: 0;
+  list-style: none;
+  margin-left: -12px;
+}
 
 .uk-dotnav > .uk-active > * {
-  background-color: #f8f8f8;
+  background-color: #4f008d;
   border-color: transparent;
   opacity: 1;
 }
@@ -168,12 +177,12 @@ html, body {
     background-color: #000000;
     text-align: center;
     font-weight: bold;
-    color: #fff;
+    color: #4f008d;
     transform-origin: 50% 50%;
     font-size: 30px;
 }
 .inside_text{
-  background-color: #45027a;
+  background-color: #ffffff;
     width: 200px;
     height: 55px;
     position: absolute;
