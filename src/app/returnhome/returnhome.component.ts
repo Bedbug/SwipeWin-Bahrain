@@ -19,6 +19,7 @@ export class ReturnhomeComponent implements OnInit {
   lblShow:boolean = true;
   passType: string = "password";
   verErrorMes: boolean = false;
+  bannersSet2: boolean = true;
 
   get hasCashback(): number {
     return this._cashBackAmount;

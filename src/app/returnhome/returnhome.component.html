@@ -68,12 +68,70 @@
         <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  !this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button> -->
         <!-- <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && gamesPlayedToday >= 1"  disabled>{{ 'HOME.NOMORE' | translate }}</button> -->
       </div>
-      <div *ngIf="loggedin && gamesPlayedToday >= 1 && !this.hasDoubledToday" class="buttons-container uk-container uk-text-center" class="list-wrapper2">
-        <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold;">{{ 'HOME.DOUBLE' | translate }}</p>
+      <div *ngIf="loggedin && gamesPlayedToday >= 1 && !this.hasDoubledToday && !bannersSet2" class="buttons-container uk-container uk-text-center" class="list-wrapper2">
+        <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold; font-family: STC-Bold;">{{ 'HOME.DOUBLE' | translate }}</p>
         <button *ngIf="this.winnersElig" style = "background: url(assets/images/winners_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button2 play-button2 uk-width-1-1 uk-modal-close"  (click)="OpenWinners()">{{ 'HOME.WINNERS' | translate }}</button>
         <button *ngIf="this.sportsElig" style = "background: url(assets/images/sports_small.jpg) 5px 5px no-repeat;background-color: white;" class="uk-button2 play-button2 uk-width-1-1 uk-modal-close"  (click)="OpenSports()">{{ 'HOME.SPORTS' | translate }}</button>
         <button *ngIf="this.horosElig" style = "background: url(assets/images/horoscopes_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button2 play-button2 uk-width-1-1 uk-modal-close"  (click)="OpenHoroscopes()">{{ 'HOME.HOROSC' | translate }}</button>
       </div>
+      
+  <!--BANNERS SET 2-->
+      <div class="slideshow-container" *ngIf="loggedin && gamesPlayedToday >= 1 && !this.hasDoubledToday && bannersSet2" uk-slideshow="animation: fade; min-height: 250; max-height: 250; autoplay: true; autoplay-interval: 3000; pause-on-hover: false;" >
+
+        <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+          <br>
+          <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold; font-family: STC-Bold;">{{ 'HOME.DOUBLE' | translate }}</p>
+            <ul class="uk-slideshow-items" >   
+              <li class="list-wrapper3" *ngIf="this.winnersElig">
+            
+                <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                    <div class="vector">
+                        <img class="icon" style="width: 400px;" src="assets/images/stcwinners_banner_small.jpg" alt=""/>
+                        <button class="play-button3 uk-width-1-1"  (click)="OpenWinners()">{{ 'HOME.SUB' | translate }}</button>
+                      </div>
+                      <!-- <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                        <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                        <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
+                    </div> -->
+                 
+                </div>
+              </li>
+              <li class="list-wrapper3" *ngIf="this.sportsElig">
+            
+                <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                    <div class="vector">
+                        <img class="icon" style="width: 400px;" src="assets/images/stcsports_banner_small.jpg" alt=""/>
+                        <button  class="play-button3 uk-width-1-1"  (click)="OpenSports()">{{ 'HOME.SUB' | translate }}</button>
+                      </div>
+                      <!-- <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                        <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                        <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
+                    </div> -->
+                 
+                </div>
+              </li>
+              <li class="list-wrapper3" *ngIf="this.horosElig">
+            
+                <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                    <div class="vector">
+                        <img class="icon" style="width: 400px;" src="assets/images/stchoroscopes_banner_small.jpg" alt=""/>
+                        <button  class="play-button3 uk-width-1-1"  (click)="OpenHoroscopes()">{{ 'HOME.SUB' | translate }}</button>
+                      </div>
+                      <!-- <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                        <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                        <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
+                    </div> -->
+                 
+                </div>
+              </li>
+             
+            </ul>
+
+          </div>
+     
+      </div>
+  <!-- END of BANNERS SET 2-->
+
       <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && gamesPlayedToday >= 1 && this.hasDoubledToday"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
       
     </div>

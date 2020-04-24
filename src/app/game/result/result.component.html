@@ -21,12 +21,72 @@
     </div>
 
     <br>
-    <div *ngIf="!this.hasDoubledAll" class="list-wrapper">
+    <div *ngIf="!this.hasDoubledAll && !bannersSet2" class="list-wrapper">
       <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
       <button *ngIf="this.winnersElig" style = "background: url(assets/images/winners_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenWinners()">{{ 'END.WINNERS' | translate }}</button>
       <button *ngIf="this.sportsElig" style = "background: url(assets/images/sports_small.jpg) 5px 5px no-repeat;background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
       <button *ngIf="this.horosElig" style = "background: url(assets/images/horoscopes_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button>
     </div>
+
+    <!--BANNERS SET 2-->
+    <div *ngIf="!this.hasDoubledAll && bannersSet2" class="list-wrapper">
+    <div class="slideshow-container"  uk-slideshow="animation: fade; min-height: 250; max-height: 250; autoplay: true; autoplay-interval: 3000; pause-on-hover:false;" >
+
+      <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1">
+        <br>
+        <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold; font-family: STC-Bold;">{{ 'HOME.DOUBLE' | translate }}</p>
+          <ul class="uk-slideshow-items" >   
+            <li class="list-wrapper3" *ngIf="this.winnersElig">
+          
+              <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                  <div class="vector">
+                      <img class="icon" style="width: 400px;" src="assets/images/stcwinners_banner_small.jpg" alt=""/>
+                      <button class="play-button3 uk-width-1-1"  (click)="OpenWinners()">{{ 'HOME.SUB' | translate }}</button>
+                    </div>
+                    <!-- <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                      <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                      <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
+                  </div> -->
+               
+              </div>
+            </li>
+            <li class="list-wrapper3" *ngIf="this.sportsElig">
+          
+              <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                  <div class="vector">
+                      <img class="icon" style="width: 400px;" src="assets/images/stcsports_banner_small.jpg" alt=""/>
+                      <button  class="play-button3 uk-width-1-1"  (click)="OpenSports()">{{ 'HOME.SUB' | translate }}</button>
+                    </div>
+                    <!-- <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                      <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                      <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
+                  </div> -->
+               
+              </div>
+            </li>
+            <li class="list-wrapper3" *ngIf="this.horosElig">
+          
+              <div class="uk-position-center uk-position-small uk-text-center uk-light">
+                  <div class="vector">
+                      <img class="icon" style="width: 400px;" src="assets/images/stchoroscopes_banner_small.jpg" alt=""/>
+                      <button  class="play-button3 uk-width-1-1"  (click)="OpenHoroscopes()">{{ 'HOME.SUB' | translate }}</button>
+                    </div>
+                    <!-- <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
+                      <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                      <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
+                  </div> -->
+               
+              </div>
+            </li>
+           
+          </ul>
+
+        </div>
+   
+    </div>
+  </div>
+<!-- END of BANNERS SET 2-->
+
     <button class="uk-button uk-button-default uk-width-1-1" *ngIf="_gamesPlayed >= 4"  disabled>{{ 'HOME.NOMORE' | translate }}</button>
     <!--Return to home page-->
     <app-button [link_button]="true" [link_button_purple]="true" class="uk-modal-close"  (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
