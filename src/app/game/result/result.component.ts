@@ -46,8 +46,8 @@ export class ResultComponent implements OnInit {
   public sportsElig:boolean = true;
   public horosElig:boolean = true;
   public hasDoubledAll:boolean = false;
-  bannersSet2: boolean = true;
-  
+  bannersSet2: boolean = false;
+
   constructor( public session: SessionService, private router: Router, private translate: TranslateService, private dataService: DataService  ) { }
 
   ngOnInit() {
