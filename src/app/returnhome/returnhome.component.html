@@ -17,8 +17,8 @@
                     " src="assets/images/daily_prize.jpg" alt=""/>
                   </div>
                   <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-                    <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_03' | translate"></span><br>
-                    <span style="font-weight: bold; font-size: 25px; color: #000000;">{{ 'HOME.CAR_03b' | translate }}</span>
+                    <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_01b' | translate"></span><br>
+                    <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_01' | translate }}</span>
                 </div>
              
             </div>
@@ -34,8 +34,8 @@
                     " src="assets/images/1GB.jpg" alt=""/>
                   </div>
                   <div uk-slideshow-parallax="x: 100,0,0" class="current-prize-fond">
-                    <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_03' | translate"></span><br>
-                    <span style="font-weight: bold; font-size: 25px; color: #000000;">{{ 'HOME.CAR_03b' | translate }}</span>
+                    <span style="font-weight: bold; font-size: 18px; color: rgb(0, 0, 0); line-height: 0px;" [innerHtml]="'HOME.CAR_02' | translate"></span><br>
+                    <span style="font-weight: bolder; font-size: 25px; color: #000000; font-family: STC-Bold;">{{ 'HOME.CAR_02b' | translate }}</span>
                 </div>
              
             </div>
@@ -80,9 +80,44 @@
     </div>
   <!--END OF PLAY BUTTONS-->
   
+  <div id="winners" class="uk-flex-top"  uk-modal>
+    <!--Top Text-->
+    <div class="uk-modal-dialog2 uk-modal-body uk-margin-auto-vertical">
+      <h4 style="color: aliceblue;
+      text-align: center;
+      padding: 20px;
+      font-size: 29px;
+      font-weight: bold;
+      text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.52), 0 0 4px rgba(0, 0, 0, 0.59);">stc Winners Club</h4>
+      
+      
+      <br>
+      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'SERVICES.MAINTEXT' | translate }}</p>
+      <br><br>
+      <h4 style="color:white;font-size: medium; text-align: center;">{{ 'SERVICES.MESSAGE' | translate }}</h4> 
+      <form >
+        <div class="uk-margin" >
+            <div class="uk-inline uk-width-1-1 ">
+                <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+                <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}"> 
+            </div>
+        </div>
+      </form>
+      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubWinners()">{{ 'SERVICES.SUBSCRIBE' | translate }}</button>
+      <p style="text-align: center; color: white; font-size: small; font-weight: bold;">{{ 'SERVICES.UNDER_WINNERS' | translate }}</p>
+      
+      <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
+      left: 50%;
+      bottom: -35px;
+      transform: translate(-50%, -50%);
+      margin: 0 auto;
+      width: 100%;" (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
+    </div>
+  </div>
+  
   <div id="horoscopes" class="uk-flex-top"  uk-modal>
     <!--Top Text-->
-    <div class="uk-modal-dialog2 uk-modal-body2 uk-margin-auto-vertical">
+    <div class="uk-modal-dialog2 uk-modal-body uk-margin-auto-vertical">
       <h4 style="color: aliceblue;
       text-align: center;
       padding: 20px;
@@ -92,10 +127,19 @@
       
       
       <br>
-      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
+      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'SERVICES.MAINTEXT' | translate }}</p>
       <br><br>
-      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubHoroscopes()">Subscribe</button>
-      <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
+      <h4 style="color:white; font-size: medium; text-align: center;">{{ 'SERVICES.MESSAGE' | translate }}</h4> 
+      <form >
+        <div class="uk-margin" >
+            <div class="uk-inline uk-width-1-1 ">
+                <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+                <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}"> 
+            </div>
+        </div>
+      </form>
+      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubHoroscopes()">{{ 'SERVICES.SUBSCRIBE' | translate }}</button>
+      <p style="text-align: center; color: white; font-size: small; font-weight: bold;">{{ 'SERVICES.UNDER_HOROSCOPES' | translate }}</p>
       
       <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
       left: 50%;
@@ -108,7 +152,7 @@
   
   <div id="sports" class="uk-flex-top"  uk-modal>
     <!--Top Text-->
-    <div class="uk-modal-dialog2 uk-modal-body2 uk-margin-auto-vertical">
+    <div class="uk-modal-dialog2 uk-modal-body uk-margin-auto-vertical">
       <h4 style="color: aliceblue;
       text-align: center;
       padding: 20px;
@@ -118,36 +162,19 @@
       
       
       <br>
-      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
+      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">{{ 'SERVICES.MAINTEXT' | translate }}</p>
       <br><br>
-      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubSports()">Subscribe</button>
-      <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
-      
-      <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
-      left: 50%;
-      bottom: -35px;
-      transform: translate(-50%, -50%);
-      margin: 0 auto;
-      width: 100%;" (click)="returnHome()">{{ 'END.BACK' | translate }}</app-button>
-    </div>
-  </div>
-  
-  <div id="winners" class="uk-flex-top"  uk-modal>
-    <!--Top Text-->
-    <div class="uk-modal-dialog2 uk-modal-body2 uk-margin-auto-vertical">
-      <h4 style="color: aliceblue;
-      text-align: center;
-      padding: 20px;
-      font-size: 29px;
-      font-weight: bold;
-      text-shadow: 0px 9px 6px rgba(0, 0, 0, 0.52), 0 0 4px rgba(0, 0, 0, 0.59);">stc Winners Club</h4>
-      
-      
-      <br>
-      <p style="text-align: center; color: white; font-size: large; font-weight: bold;">Click to DOUBLE your points for the new iPnone 11</p>
-      <br><br>
-      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubWinners()">Subscribe</button>
-      <p style="text-align: center; color: white; font-size: small; font-weight: bold;">Enjoy 1 day for FREE! After the trial day service charges apply</p>
+      <h4 style="color:white;font-size: medium;text-align: center;">{{ 'SERVICES.MESSAGE' | translate }}</h4> 
+      <form >
+        <div class="uk-margin" >
+            <div class="uk-inline uk-width-1-1 ">
+                <span class="uk-form-icon" uk-icon="icon: phone; ratio: 1.5"></span>
+                <input #number class="uk-input uk-border-rounded" type="text" placeholder="{{ 'HOME.NUM' | translate }}"> 
+            </div>
+        </div>
+      </form>
+      <button  class="uk-button uk-button-default play-button uk-width-1-1 uk-modal-close"   (click)="SubSports()">{{ 'SERVICES.SUBSCRIBE' | translate }}</button>
+      <p style="text-align: center; color: white; font-size: small; font-weight: bold;">{{ 'SERVICES.UNDER_SPORTS' | translate }}</p>
       
       <app-button [link_button]="true" [link_button_white]="true" class="uk-modal-close" style="position: fixed;
       left: 50%;
