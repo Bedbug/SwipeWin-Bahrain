@@ -406,22 +406,22 @@ var __phaser = {
         // Reset ame.logic.extraCardsCount
         game.logic.extraCardsCount = 0; // SPINNING GEARS
 
-        this.g1 = game.add.sprite(game.world.centerX - 65, game.world.centerY - 120, 'Gear');
+        this.g1 = game.add.sprite(game.world.centerX +10, game.world.centerY , 'Gear');
         this.g1.anchor.set(0.5);
         this.g1.scale.set(0.9);
         this.gearGroup.add(this.g1);
         var tween1 = game.add.tween(this.g1).to({
-          angle: 180
-        }, 2000, Phaser.Easing.Quadratic.InOut, true).loop(true); // tween1.yoyo(true, 0);
+          angle: 360
+        }, 2000, Phaser.Easing.Linear, true).loop(true); // tween1.yoyo(true, 0);
 
-        this.g2 = game.add.sprite(game.world.centerX + 85, game.world.centerY + 50, 'Gear');
-        this.g2.anchor.set(0.5);
-        this.g2.scale.set(0.8);
-        var tween2 = game.add.tween(this.g2).to({
-          angle: -180
-        }, 2000, Phaser.Easing.Quadratic.InOut, true).loop(true); // tween2.yoyo(true, 0);
+        // this.g2 = game.add.sprite(game.world.centerX + 85, game.world.centerY + 50, 'Gear');
+        // this.g2.anchor.set(0.5);
+        // this.g2.scale.set(0.8);
+        // var tween2 = game.add.tween(this.g2).to({
+        //   angle: -180
+        // }, 2000, Phaser.Easing.Quadratic.InOut, true).loop(true); // tween2.yoyo(true, 0);
 
-        this.gearGroup.add(this.g2); // LIGHTS
+        // this.gearGroup.add(this.g2); // LIGHTS
 
         that.lights = game.add.sprite(game.camera.width / 2, game.camera.height / 2 - game.camera.height / 100 * 18 + 100, 'lights');
         that.lights.anchor.set(0.5);
