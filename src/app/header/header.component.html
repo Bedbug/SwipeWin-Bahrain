@@ -22,7 +22,7 @@
                                     offset: 0
                                     "
                 (dropHide)="toggleClass()">
-                <div id="offcanvas-nav" uk-offcanvas="overlay: true; flip:false">
+                <div id="offcanvas-nav" uk-offcanvas="overlay: true; flip:true">
                   <div class="uk-offcanvas-bar">
                     <ul class="uk-nav uk-nav-default">
                       <li class="uk-active">
@@ -81,15 +81,7 @@
                           </div>
                         </a>
                       </li>
-                      <!-- <li>
-                        <a 
-                        [routerLink]="['/info']"
-                        class="nav-list-button" (click)="closeOffcanvas()">
-                            <div class="nav-list-box  uk-flex" [ngClass]="(alignAllLeft)?'direct_left':'direct_right'">
-                              <img class="nav-list-icon" src="assets/icons/info.svg" alt=""><span >{{ 'BURGER.TERMS' | translate }}</span>
-                            </div>
-                        </a>
-                      </li> -->
+                      
                       <li>
                           <a class="nav-list-button" (click)="changeLanguage();">
                               <div class="nav-list-box last-item uk-flex" [ngClass]="(alignAllLeft)?'direct_right':'direct_left'">

@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import "../node_modules/uikit/src/scss/variables-theme";
-@import "../node_modules/uikit/src/scss/mixins-theme";
+// @import "../node_modules/uikit/src/scss/mixins-theme";
 @import "../node_modules/uikit/src/scss/uikit-theme";
 
 @import 'assets/fonts.scss';
@@ -12,7 +12,7 @@
 #offcanvas-nav{
   .uk-offcanvas-bar{
     top: 4rem;
-    width: 100%;
+    // width: 100%;
     padding: 0;
     padding-right:0;
   }
