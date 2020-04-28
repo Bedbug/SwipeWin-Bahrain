@@ -115,6 +115,19 @@ html, body {
   list-style: none;
   margin-left: -12px;
 }
+.uk-dotnav > * > * {
+  display: block;
+  box-sizing: border-box;
+  width: $dotnav-item-width;
+  height: $dotnav-item-height;
+  border-radius: 0px;
+  background: $dotnav-item-background;
+  text-indent: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  opacity: 0.3;
+  background-color: #000000;
+}
 
 .uk-dotnav > .uk-active > * {
   background-color: #4f008d;
