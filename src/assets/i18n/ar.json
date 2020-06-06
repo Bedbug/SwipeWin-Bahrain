@@ -81,7 +81,7 @@
         "WINNERS": "stc Winners Club",
         "SPORTS": "stc Sports Club",
         "HOROSC": "stc Horoscopes",
-        "BACK": "الرجوع"
+        "BACK": "إلعب الآن"
     },
     "PRIZES": {
         "PRIZES": "جوائز اللعبة",
@@ -93,13 +93,13 @@
         "MES_06": "",
         "MES_07": "",
         "MES_08": "",
-        "BACK": "الرجوع"
+        "BACK": "إلعب الآن"
     },
     "WINNERS": {
         "WINNERS": "فائزين اللعبة",
         "PRIZE": "الجائزة",
         "DATE": "التاريخ",
-        "BACK": "الرجوع"
+        "BACK": "إلعب الآن"
     },
     "TUTORIAL": {
         "MES_01": "إسحب لليمن او لليسار",

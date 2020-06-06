@@ -81,7 +81,7 @@
         "WINNERS": "stc Winners Club",
         "SPORTS": "stc Sports Club",
         "HOROSC": "stc Horoscopes",
-        "BACK": "Go Back"
+        "BACK": "Play now"
     },
     "PRIZES": {
         "PRIZES": "Game Prizes",
@@ -93,13 +93,13 @@
         "MES_06": "",
         "MES_07": "",
         "MES_08": "",
-        "BACK": "Go Back"
+        "BACK":"Play now"
     },
     "WINNERS": {
         "WINNERS": "Winners",
         "PRIZE": "Prize",
         "DATE": "Date",
-        "BACK": "Go Back"
+        "BACK": "Play now"
     },
     "TUTORIAL": {
         "MES_01": "Swipe Left or Right",

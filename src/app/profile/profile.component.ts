@@ -37,6 +37,8 @@ export class ProfileComponent implements OnInit {
   private _bestResultAllTime = 0;
   private _bestResultToday = 0;
   public _cashBackAmount = 0;
+
+  public showDays = false;
   public _daysInGame = 0;
   
   public showAvatar = true;
@@ -63,11 +65,16 @@ export class ProfileComponent implements OnInit {
     
     // user login validation check
     if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
+
+      console.log("Token: "+ this.sessionService.token);
+      console.log("isSubscribed: "+ this.sessionService.isSubscribed);
+      console.log("isEligible: "+ this.sessionService.isEligible);
+
       // wanna inform the user here?
       //this._cashback = this.sessionService.cashback;
       // Initiate user authentication
       // this.dataService.authenticateRedirect();
-      let modal = UIkit.modal("#error");
+      let modal = UIkit.modal("#error", {escClose: false, bgClose: false});
       this.errorMsg = "Вы должны подписаться, чтобы войти в этот раздел";
       modal.show();
     }

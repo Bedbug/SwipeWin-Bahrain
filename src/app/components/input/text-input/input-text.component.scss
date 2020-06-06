@@ -6,7 +6,15 @@
     font-weight: bold;
   }
   input {
-    border-radius: 0px;
+    border-radius: 1px;
+    max-width: 100%;
+    width: 100%;
+    border: 1px solid #e5e5e5;
+    padding: 0 10px;
+    background: #fff;
+    color: #666;
+    transition: .2s ease-in-out;
+    transition-property: color,background-color,border;
   }
 
 }
