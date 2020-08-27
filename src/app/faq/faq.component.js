@@ -31,7 +31,7 @@ var FaqComponent = (function () {
     };
     FaqComponent.prototype.startGame = function () {
         console.log("Play Main Game!");
-        this.sessionService.gamesPlayed++;
+        //this.sessionService.gamesPlayed++;
         this.router.navigate(['game']);
     };
     FaqComponent.prototype.startFreeGame = function () {

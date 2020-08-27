@@ -32,7 +32,7 @@ var PrizesComponent = (function () {
     };
     PrizesComponent.prototype.startGame = function () {
         console.log("Play Main Game!");
-        this.sessionService.gamesPlayed++;
+        //this.sessionService.gamesPlayed++;
         this.router.navigate(['game']);
     };
     PrizesComponent.prototype.startFreeGame = function () {
