@@ -97,7 +97,7 @@
       <div class="buttons-container uk-container uk-text-center">
         <p  style="font-size: 15px; color: rgb(0, 0, 0);">{{ 'HOME.MESSAGE' | translate }}</p>
         <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button>  -->
-        <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin && gamesPlayedToday < 50" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button> 
+        <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin && gamesPlayedToday < (sessionService && sessionService.gameSettings && sessionService.gameSettings['user-login'] && sessionService.gameSettings['user-login'].creditableGamesPerDay >= 0 ? sessionService.gameSettings['user-login'].creditableGamesPerDay : 1)" (click)="startGame()">{{ 'HOME.PLAY' | translate }}</button> 
         <!-- <button class="uk-button uk-button-default play-button uk-width-1-1" *ngIf="loggedin &&  !this.sessionService.hasCredit() && _gamesPlayed < 4" (click)="OpenOTPPurchase()">{{ 'HOME.BUY' | translate }}</button> -->
         <!-- <button class="uk-button uk-button-default uk-width-1-1" *ngIf="loggedin && gamesPlayedToday >= 1"  disabled>{{ 'HOME.NOMORE' | translate }}</button> -->
       </div>
