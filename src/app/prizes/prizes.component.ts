@@ -37,7 +37,7 @@ export class PrizesComponent implements OnInit {
   
   startGame() {
       console.log("Play Main Game!");
-      //this.sessionService.gamesPlayed++;
+      this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
     
   }

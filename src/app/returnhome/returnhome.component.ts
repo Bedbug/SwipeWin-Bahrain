@@ -71,7 +71,7 @@ export class ReturnhomeComponent implements OnInit {
 
   startGame() {
    
-      //this.sessionService.gamesPlayed++;
+      this.sessionService.gamesPlayed++;
       this.sessionService.credits--;
       
      

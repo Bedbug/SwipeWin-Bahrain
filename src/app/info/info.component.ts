@@ -61,7 +61,7 @@ constructor(private dataService : DataService, private sessionService: SessionSe
   
   startGame() {
       console.log("Play Main Game!");
-      //this.sessionService.gamesPlayed++;
+      this.sessionService.gamesPlayed++;
       this.router.navigate(['game']);
   }
   
