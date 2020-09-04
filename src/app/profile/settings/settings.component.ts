@@ -100,6 +100,7 @@ export class SettingsComponent implements OnInit {
     
       // this.data$ = this.sessionService.user;
       this.avatarPic =  environment.gameServerDomainUrl + '/' + this.data$.picture;
+      console.log(this.avatarPic);
       this._name =  this.data$.username;
       this._age = this.data$.age;
       this._sex = this.data$.gender;

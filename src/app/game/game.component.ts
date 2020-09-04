@@ -102,7 +102,7 @@ export class GameComponent implements OnInit {
         this.globals.isFirstDemo = true
         localStorage.setItem('firstTime','no');
       }else {
-        this.globals.isFirstDemo = false;
+        this.globals.isFirstDemo = true; // Always show tutorial
       }
       // this.globals.isFirstDemo = true;
     }

@@ -30,6 +30,7 @@ export class ResultComponent implements OnInit {
   lblShow:boolean = true;
   passType: string = "password";
   verErrorMes: boolean = false;
+  doubleMessage: boolean = false;
 
   private _firstTime = false;
   public _gamesPlayed = 2;
@@ -166,6 +167,10 @@ export class ResultComponent implements OnInit {
         //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
         // }
           console.log(body.error);
+      }else{
+        // Double points
+        this._gameScore = this._gameScore * 2;
+        this.doubleMessage = true;
       }
     }, 
     (err: any) => {
@@ -202,6 +207,10 @@ export class ResultComponent implements OnInit {
         //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
         // }
           console.log(body.error);
+      }else{
+        // Double points
+        this._gameScore = this._gameScore * 2;
+        this.doubleMessage = true;
       }
     }, 
     (err: any) => {
@@ -237,6 +246,10 @@ export class ResultComponent implements OnInit {
         //   case '1025': this.errorMsg = this.noCredits; this.gotofaqBtn = false; this.logOutBtn = false; break;
         // }
           console.log(body.error);
+      }else{
+        // Double points
+        this._gameScore = this._gameScore * 2;
+        this.doubleMessage = true;
       }
     }, 
     (err: any) => {

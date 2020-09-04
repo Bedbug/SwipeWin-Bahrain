@@ -108,6 +108,9 @@ export class ProfileComponent implements OnInit {
           // }
           this.refreshDiv();
           this._phone = data.msisdn;
+          console.log(this._phone.substring(0, 3));
+          if(this._phone.substring(0, 3) == "973")
+            this._phone=this._phone.slice(3);
           console.log(this.sessionService.user);
         },
         (err) => {

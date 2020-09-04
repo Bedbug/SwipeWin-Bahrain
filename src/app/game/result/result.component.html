@@ -10,7 +10,8 @@
         <div class="coin">
           <div class="coin__number">{{getScore}}</div>
         </div>
-        <p>{{answerMessage}}</p>
+        <p *ngIf="!this.doubleMessage">{{answerMessage}}</p>
+        <p *ngIf="this.doubleMessage" style="font-size: 20px;">{{ 'END.DOUBLED' | translate }}</p>
         <p style="color: #000000;
                   font-size: 22px;
                   font-weight: bolder;">{{ 'END.TOTAL' | translate }} {{totalPoints}}</p>
