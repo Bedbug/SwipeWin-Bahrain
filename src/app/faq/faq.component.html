@@ -14,16 +14,25 @@
             
         </div> 
       </div>
-
-      <!-- <div *ngFor="let service of ('FAQ.data' | translate)">
-          <p>{{service.title}}</p>
-          <p>{{service.description}}</p>
-      </div> -->
-
     </div>
   </div>
 </div>
 
+<!-- <div class="buttons-container uk-container" style="margin-top: 35px;">
+  <div class="faq-component" style="max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;"><br>
+    <div class="uk-accordion" data-uk-accordion="multiple: true">
+
+      <div class="faq-item" *ngFor="let service of ('FAQ.data' | translate)" >
+        <p class="uk-accordion-title" [ngClass]="(alignAllLeft)?'direct_left':'direct_right'">{{service.title}}</p>
+        <div class="uk-accordion-content" [ngClass]="(alignAllLeft)?'direct_left':'direct_right'" [innerHtml]="service.descr">
+            
+        </div> 
+      </div>
+    </div>
+  </div>
+</div> -->
 
 <div class="buttons-container uk-container uk-text-center">
  
