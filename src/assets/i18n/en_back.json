@@ -38,16 +38,16 @@
     },
     "BURGER": {
         "HOME": "Game",
-        "PROFILE": "Profile",
+        "PROFILE": "Game Profile",
         "HOW": "How to play",
-        "PRIZES": "Prizes",
-        "WINNERS": "Winners",
-        "FAQ": "FAQ",
-        "TERMS": "T&Cs",
+        "PRIZES": "Game Prizes",
+        "WINNERS": "Game Winners",
+        "FAQ": "Game FAQ",
+        "TERMS": "Game T&Cs",
         "LANG": "عربي"
     },
     "PROFILE": {
-        "PROFILE": "Profile",
+        "PROFILE": "Game Profile",
         "POINTS": "TOTAL POINTS",
         "PLAYED": "Games played",
         "BEST": "Best Score",
@@ -56,7 +56,7 @@
         "BACK": "Go back to Game"
     },
     "SETT": {
-        "SETT": "Settings",
+        "SETT": "Game Settings",
         "UPLOAD": "Upload Profile Photo",
         "SEX": "Gender",
         "NAME": "Name",
@@ -84,8 +84,8 @@
         "BACK": "Play now"
     },
     "PRIZES": {
-        "PRIZES": "Prizes",
-        "MES_01": "iphone 11",
+        "PRIZES": "Game Prizes",
+        "MES_01": "iphone 11 for Ramadan",
         "MES_02": "1 GB mobile data if you gather 300 points in a day",
         "MES_03": "2 GB mobile data if you gather 2,000 total points",
         "MES_04": "3 GB mobile data if you gather 3,000 total points",
@@ -119,7 +119,7 @@
         {"title": "What is the duration of the game?",
             "descr":"<p>The game is ongoing and all stc users can play 1 game daily for free!</p>"},
         {"title": "What are the prizes?",
-            "descr":"<p>Swipe & Win game gives away:</p><ul><li>1 iphone 11 </li><li>1 GB mobile data for 300 points in a day from correct questions</li><li>2 GB mobile data for 2,000 total points from correct questions</li><li>3 GB mobile data for 3,000 total points from correct questions</li></ul>Chances for draws with amazing Cash, Gold or Car prizes at the end of the game!</li><li>"},
+            "descr":"<p>Swipe & Win game gives away:</p><ul><li>1 iphone 11 for Ramadan</li><li>1 GB mobile data for 300 points in a day from correct questions</li><li>2 GB mobile data for 2,000 total points from correct questions</li><li>3 GB mobile data for 3,000 total points from correct questions</li></ul>Chances for draws with amazing Cash, Gold or Car prizes at the end of the game!</li><li>"},
         {"title": "If I win how will I be informed?",
             "descr":"<p>The winner will be contacted by stc in the next days as to explain the process needed. So do not worry, just keep your phone on.</p>"},
         {"title": "How many times may I win each prize?",
@@ -147,6 +147,7 @@
         "MES_04": "Very Good!",
         "MES_05": "Great!",
         "MES_06": "Correct Answers",
+        "DOUBLED": "DOUBLE POINTS",
         "TOTAL": "TOTAL POINTS:",
         "NOMORE": "You don't have other games left.",
         "COMEBACK": "Come back tommorow!",
