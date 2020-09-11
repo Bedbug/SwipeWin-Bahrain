@@ -28,6 +28,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // Checking Lang
+    console.log(this.translate.currentLang);
     if(this.translate.currentLang == "ar") {
       this.alignAllLeft = false;
     } else {
@@ -57,6 +58,12 @@ export class HeaderComponent implements OnInit {
   public toggleClass() {
     console.log("Toggleing!!!");
     this.pushed = !this.pushed;
+    console.log(this.translate.currentLang);
+    if(this.translate.currentLang == "ar") {
+      this.alignAllLeft = false;
+    } else {
+      this.alignAllLeft = true;
+    }
   }
 
   public changeMenuState(event) {

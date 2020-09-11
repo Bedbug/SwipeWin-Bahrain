@@ -102,6 +102,7 @@
         "BACK": "Play now"
     },
     "TUTORIAL": {
+        "MES_00": "Skip",
         "MES_01": "Swipe Left or Right",
         "MES_02": "All you have to do is Swipe right<br>for YES or left for NO",
         "MES_03": "60 seconds per game",
@@ -146,7 +147,7 @@
         "MES_03": "Perfect!",
         "MES_04": "Very Good!",
         "MES_05": "Great!",
-        "MES_06": "Correct Answers",
+        "MES_06": "Points won",
         "DOUBLED": "DOUBLE POINTS",
         "TOTAL": "TOTAL POINTS:",
         "NOMORE": "You don't have other games left.",
