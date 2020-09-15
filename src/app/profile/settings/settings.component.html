@@ -7,18 +7,18 @@
     margin-right: auto;">
 
   <div class="list-wrapper">
-    <div class="avatar">
+    <div class="">
       <!--<ngx-avatar *ngIf="showAvatar" class="my-avatar" -->
     
       <!--  src="{{avatarPic}}" name="{{_name}}" -->
       <!--  size="70" [round]="true">-->
       <!--</ngx-avatar>-->
-      <img ngxGravatar class="my-avatar" size="80" src="{{avatarPic}}">
+      <img ngxGravatar class="" size="80" src="{{avatarPic}}">
       <!--add functionality (upload Pic)-->
       <div class="js-upload" uk-form-custom>
       <input type="file" accept="image/*" class="btn" (change)="OnFileSelected($event)" multiple>
       
-      <app-button [secondary]="true" class="btn">{{ 'SETT.UPLOAD' | translate }}</app-button> 
+      <!-- <app-button [secondary]="true" class="btn">{{ 'SETT.UPLOAD' | translate }}</app-button>  -->
       
       </div>
       <!--<input class="btn" type="file" (change)="OnFileSelected($event)" >-->
