@@ -15,7 +15,7 @@ export class AppComponent {
     
 
     const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/ar|er/) ? browserLang : 'ar');
+    translate.use(browserLang.match(/ar|er/) ? browserLang : 'en');
 
     this.activatedRoute.queryParams.subscribe(params => {
       // console.table(params);
@@ -25,7 +25,7 @@ export class AppComponent {
         this.translate.setDefaultLang(this.lang);
         this.translate.use(this.lang);
       }else
-        translate.setDefaultLang('ar');
+        translate.setDefaultLang('en');
       
       console.log("Language Selected: "+this.lang);
     })
