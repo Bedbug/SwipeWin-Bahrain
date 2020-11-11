@@ -1,7 +1,7 @@
 {
     "HOME": {
         "CAR_01b": "Play every day and gather<br> points for the new",
-        "CAR_01": "iPhone 11",
+        "CAR_01": "iPhone 12",
         "CAR_02b": "1 GB mobile data",
         "CAR_02": "if you gather 300 points<br> in a single day",
         "CAR_03b": "2 GB mobile data",
@@ -85,7 +85,7 @@
     },
     "PRIZES": {
         "PRIZES": "Prizes",
-        "MES_01": "iphone 11",
+        "MES_01": "iphone 12",
         "MES_02": "1 GB mobile data if you gather 300 points in a day",
         "MES_03": "2 GB mobile data if you gather 2,000 total points",
         "MES_04": "3 GB mobile data if you gather 3,000 total points",
@@ -109,7 +109,7 @@
         "MES_04": "Remember: Every wrong question<br>decreases the time 5 seconds",
         "MES_05": "Gather points",
         "MES_06": "Reply as many questions as you can<br>build up points for the amazing prizes<br>You can be the next stc Swipe & Win winner!",
-        "MES_07": "An iPhone 11 is waiting",
+        "MES_07": "An iPhone 12 is waiting",
         "MES_08": "Want more? Collect points from correct Swipe & Win replies and you will get 1GB, 2GB or 3GB  Mobile Data!"
     },
     "FAQ": {
@@ -120,7 +120,7 @@
         {"title": "What is the duration of the game?",
             "descr":"<p>The game is ongoing and all stc users can play 1 game daily for free!</p>"},
         {"title": "What are the prizes?",
-            "descr":"<p>Swipe & Win game gives away:</p><ul><li>1 iphone 11 </li><li>1 GB mobile data for 300 points in a day from correct questions</li><li>2 GB mobile data for 2,000 total points from correct questions</li><li>3 GB mobile data for 3,000 total points from correct questions</li></ul>Chances for draws with amazing Cash, Gold or Car prizes at the end of the game!</li><li>"},
+            "descr":"<p>Swipe & Win game gives away:</p><ul><li>1 iphone 12 </li><li>1 GB mobile data for 300 points in a day from correct questions</li><li>2 GB mobile data for 2,000 total points from correct questions</li><li>3 GB mobile data for 3,000 total points from correct questions</li></ul>Chances for draws with amazing Cash, Gold or Car prizes at the end of the game!</li><li>"},
         {"title": "If I win how will I be informed?",
             "descr":"<p>The winner will be contacted by stc in the next days as to explain the process needed. So do not worry, just keep your phone on.</p>"},
         {"title": "How many times may I win each prize?",
