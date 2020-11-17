@@ -124,6 +124,7 @@ export class HomeComponent implements OnInit {
       this.dataService.fetchGameSettings().then(
         (data: any) => {
           this.sessionService.gameSettings = data;
+          // console.table(this.sessionService.gameSettings);
           this.localizationService.init(this.sessionService.gameSettings.localization);
 
             let modal = UIkit.modal("#error");

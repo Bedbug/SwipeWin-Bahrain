@@ -37,6 +37,7 @@ export class ReturnhomeComponent implements OnInit {
   }
 
   get gamesPlayedToday(): number {
+    // console.log("Games Played: "+this.sessionService.gamesPlayed)
     return this.sessionService.gamesPlayed;
   }
 
