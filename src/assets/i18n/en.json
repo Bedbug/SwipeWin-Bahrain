@@ -163,9 +163,9 @@
     "SERVICES": {
         "MAINTEXT": "Click to DOUBLE your points for the amazing prizes!",
         "SUBSCRIBE": "Subscribe",
-        "UNDER_WINNERS": "Enjoy 1 day for FREE! After the trial day service charges apply - 125 fils/day (+5% VAT)",
-        "UNDER_SPORTS": "Enjoy 1 day for FREE! After the trial day service charges apply - 100 fils/day (+5% VAT)",
-        "UNDER_HOROSCOPES": "Enjoy 1 day for FREE! After the trial day service charges apply - 100 fils/day (+5% VAT)",
+        "UNDER_WINNERS": "Enjoy 1 day for FREE! After the trial day service charges apply - 125 fils/day (+10% VAT)",
+        "UNDER_SPORTS": "Enjoy 1 day for FREE! After the trial day service charges apply - 100 fils/day (+10% VAT)",
+        "UNDER_HOROSCOPES": "Enjoy 1 day for FREE! After the trial day service charges apply - 100 fils/day (+10% VAT)",
         "MESSAGE": "Insert your phone number"
     },
     "MESSAGES": {
