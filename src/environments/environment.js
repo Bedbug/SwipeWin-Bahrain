@@ -8,7 +8,7 @@ exports.environment = {
     // the path to the game server for the game DataService calls
     //gameServerDomainUrl: 'http://localhost:3030',
     // gameServerDomainUrl: 'https://swipewin-whitelabel.herokuapp.com',
-    gameServerDomainUrl: 'https://swipewin-orange-server.herokuapp.com',
+    gameServerDomainUrl: 'http://34.254.209.96/swipewin-bahrain-server/',
     // the path to MTS Authentication API for WebSSO user authentication
     mtsAuthDomainUrl: 'login.mts.ru',
     // the http protocol of the MTS Authentication API for WebSSO user authentication
