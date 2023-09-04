@@ -27,11 +27,11 @@ export class ReturnhomeComponent implements OnInit {
   get isSubscribed(): boolean {
     return this._isSubscribed;
   }
-  
+
   get isChecked(): boolean {
     return this._isChecked;
   }
-  
+
   get gamesPlayed(): number {
     return this._gamesPlayed;
   }
@@ -54,7 +54,7 @@ export class ReturnhomeComponent implements OnInit {
   private _isChecked = false;
   // How many (1st free or billable) games the user has played
   public _gamesPlayed = 0;
-  
+
   public  servicesOpened:boolean = false;
 
   public errorMsg = "";
@@ -62,24 +62,24 @@ export class ReturnhomeComponent implements OnInit {
   public noMoreDemoGames = "No more demo games available! \n Why don't you try the real thing?";
 
   checkCheckBoxvalue(event){
-   
+
     this._isChecked = event.target.checked;
   }
-  
+
   GoSubscribe() {
-    
+
   }
 
   startGame() {
-   
+
       this.sessionService.gamesPlayed++;
       this.sessionService.credits--;
-      
-     
+
+
       this.router.navigate(['game']);
-     
+
   }
-  
+
   startFreeGame() {
     this.router.navigate(['freetimegame']);
   }
@@ -91,7 +91,7 @@ export class ReturnhomeComponent implements OnInit {
     // user login validation check
     if (!this.sessionService.token || !this.sessionService.isSubscribed || !this.sessionService.isEligible) {
       // wanna inform the user here?
-      
+
       // Redirect him to Home
       // this.router.navigate(['/home'], { queryParams: { errorCode: 401 } });
     }
@@ -99,35 +99,47 @@ export class ReturnhomeComponent implements OnInit {
       this.router.navigate(['/home'], { queryParams: { errorCode: 1026 } });
     }
     else {
-      
+
       this._isSubscribed = this.sessionService.isSubscribed;
-     
+
       // Services Check
-      if(this.sessionService.subscribedAtWinnersClubAt == null) this.winnersElig = true; else this.winnersElig = false;
-      if(this.sessionService.subscribedAtSportsClubAt == null) this.sportsElig = true; else this.sportsElig = false;
-      if(this.sessionService.subscribedAtHoroscopesAt == null) this.horosElig = true; else this.horosElig = false;
-      
-      
+      // VIVACLUB-421   [Bedbug] Swipe and WIN | Hide Sports Club & Horoscopes Banners
+      if (this.sessionService.subscribedAtWinnersClubAt == null)
+        this.winnersElig = true;
+      else
+        this.winnersElig = false;
+
+      // if (this.sessionService.subscribedAtSportsClubAt == null)
+      //   this.sportsElig = true;
+      // else
+        this.sportsElig = false;
+
+      // if (this.sessionService.subscribedAtHoroscopesAt == null)
+      //   this.horosElig = true;
+      // else
+        this.horosElig = false;
+
+
       // Doubled Check
       if(this.sessionService.hasDoubledAtSportsClubAt == null && this.sessionService.hasDoubledAtWinnersClubAt == null && this.sessionService.hasDoubledAtHoroscopesAt == null)
         this.hasDoubledToday = false;
         else
         this.hasDoubledToday = true;
-        
 
-      
-     
+
+
+
       // If has not played today open play button
       // If already played so played for today view
-      
-      this.dataService.getUserProfile().subscribe( 
+
+      this.dataService.getUserProfile().subscribe(
         (data: any) => {
 
-          
+
           this.sessionService.user = data;
           this._gamesPlayed = this.sessionService.gamesPlayed;
 
-         
+
 
           this.CheckCredits();
           // Set Properties here
@@ -135,22 +147,22 @@ export class ReturnhomeComponent implements OnInit {
           // this._cashBackAmount = this.sessionService.user.wallet.pendingMaturityCashback + this.sessionService.user.wallet.pendingTransferCashback;
         },
         (err) => {
-          
+
         }
-        
+
       );
     }
   }
 
   CheckCredits() {
-   
-    
+
+
       this.sessionService.hasCredit();
-    
+
   }
 
   OpenOTPPurchase() {
-   
+
     // Start OTP proccess for new game purchace
     // Send PIN
     // Verify user Input
@@ -162,16 +174,16 @@ export class ReturnhomeComponent implements OnInit {
       modal.show();
     },
       (err: any) => {
-       
+
         let modal = UIkit.modal("#error");
         modal.show();
       });
   }
 
-  
+
   OpenPass(){
     this.lblShow = !this.lblShow;
-   
+
     if(this.lblShow)
       this.passType = "password";
     else
@@ -190,34 +202,34 @@ export class ReturnhomeComponent implements OnInit {
      // Close the modal if pin & purchase are success
       let modal = UIkit.modal("#otp");
       modal.hide();
-    
+
       // Deserialize payload
       const body: any = resp.body; // JSON.parse(response);
-         
+
       if (body.credits > 0)
         this.sessionService.credits = body.credits;
-      
-     
-    
+
+
+
       this.sessionService.user = body;
       this._gamesPlayed = this.sessionService.gamesPlayed;
-     
-        
+
+
       if (this.sessionService.credits > 0) {
         // Burn Credit
             this.startGame();
-      }      
+      }
     },
       (err: any) => {
-        // If Purchase is not Success Open Error Modal and close OTP modal (Then return to home) 
-       
+        // If Purchase is not Success Open Error Modal and close OTP modal (Then return to home)
+
 
         if (err.error) {
           const errorCode = err.error.errorCode;
 
           if (errorCode === 1007) {
             // pin verification problem, pin invalid or wrong
-           
+
             // If PIN is incorect show a text error
             this.verErrorMes = true;
           }
@@ -236,9 +248,9 @@ export class ReturnhomeComponent implements OnInit {
 
       });
   }
-  
+
   resetPin() {
-  
+
   }
   returnHome() {
     this.servicesOpened = false;
@@ -273,9 +285,9 @@ export class ReturnhomeComponent implements OnInit {
         // }
           console.log(body.error);
       }
-    }, 
+    },
     (err: any) => {
-      
+
     });
   }
 
@@ -306,9 +318,9 @@ export class ReturnhomeComponent implements OnInit {
         // }
           console.log(body.error);
       }
-    }, 
+    },
     (err: any) => {
-      
+
     });
   }
 
@@ -339,9 +351,9 @@ export class ReturnhomeComponent implements OnInit {
         // }
           console.log(body.error);
       }
-    }, 
+    },
     (err: any) => {
-      
+
     });
   }
 }
