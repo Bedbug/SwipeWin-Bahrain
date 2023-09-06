@@ -26,7 +26,7 @@ export class ResultComponent implements OnInit {
   get gamesPlayed(): number {
     return this._gamesPlayed;
   }
-  
+
   lblShow:boolean = true;
   passType: string = "password";
   verErrorMes: boolean = false;
@@ -42,7 +42,7 @@ export class ResultComponent implements OnInit {
   private _firstGameToday = true;
   private _isInTop = true;
   private _bestWeekScore = 0;
-  
+
   public winnersElig:boolean = true;
   public sportsElig:boolean = true;
   public horosElig:boolean = true;
@@ -54,7 +54,7 @@ export class ResultComponent implements OnInit {
   ngOnInit() {
     if (!this.session.lastGameResults)
       this.router.navigate(['home']);
-    
+
      console.table(this.session.lastGameResults);
 
     this._gameScore = this.session.lastGameResults.score;
@@ -64,23 +64,35 @@ export class ResultComponent implements OnInit {
     this._gamesPlayed = this.session.gamesPlayed;
     this._bestWeekScore = this.session.lastGameResults.isBestScoreLastWeek;
     this._isInTop = this.session.lastGameResults.isTop100;
-    
-    // Services
-    if(this.session.lastGameResults.subscribedAtWinnersClubAt == null) this.winnersElig = true; else this.winnersElig = false;
-    if(this.session.lastGameResults.subscribedAtSportsClubAt == null) this.sportsElig = true; else this.sportsElig = false;
-    if(this.session.lastGameResults.subscribedAtHoroscopesAt == null) this.horosElig = true; else this.horosElig = false;
 
-    
+    // Services
+    // VIVACLUB-421   [Bedbug] Swipe and WIN | Hide Sports Club & Horoscopes Banners
+    if (this.session.lastGameResults.subscribedAtWinnersClubAt == null)
+      this.winnersElig = true;
+    else
+      this.winnersElig = false;
+
+    // if (this.session.lastGameResults.subscribedAtSportsClubAt == null)
+    //   this.sportsElig = true;
+    // else
+      this.sportsElig = false;
+
+    // if (this.session.lastGameResults.subscribedAtHoroscopesAt == null)
+    //   this.horosElig = true;
+    // else
+      this.horosElig = false;
+
+
     // All Doubled
     if(this.session.lastGameResults.subscribedAtWinnersClubAt != null && this.session.lastGameResults.subscribedAtSportsClubAt != null && this.session.lastGameResults.subscribedAtHoroscopesAt != null)
       this.hasDoubledAll = true;
 
-    
+
 
     // Check Best Score Today
     var bestScore = 0;
     var bestScoreToday = 0;
-    
+
     if(this.session.user!=null) {
       // console.log(this.session.user);
       bestScore = this.session.user.bestScore;
@@ -91,21 +103,21 @@ export class ResultComponent implements OnInit {
       if(this._gameScore > bestScore)
         this.session.user.bestScore = this._gameScore
     }
-    
+
    //console.log("Games Played: "+ this._gamesPlayed);
    //console.log("cashBack Won: "+ this._cashbackAmount);
    //console.log("hasCredit: " + this.session.hasCredit());
    //console.log("Credits: " + this.session.credits);
     var modal = UIkit.modal("#result", {escClose: false, bgClose: false});
     setTimeout( () => { modal.show(); }, 1000 );
-      
+
   }
-  
+
   startGame() {
     // if(this._gamesPlayed >= 3) {
     //   // popup modal with error
     //   this.router.navigate(['returnhome']);
-      
+
     // }else{
      //console.log("Play Main Game!");
       this.session.gamesPlayed++;
@@ -172,9 +184,9 @@ export class ResultComponent implements OnInit {
         this._gameScore = this._gameScore * 2;
         this.doubleMessage = true;
       }
-    }, 
+    },
     (err: any) => {
-     
+
     });
   }
 
@@ -212,9 +224,9 @@ export class ResultComponent implements OnInit {
         this._gameScore = this._gameScore * 2;
         this.doubleMessage = true;
       }
-    }, 
+    },
     (err: any) => {
-     
+
     });
   }
   OpenSports() {
@@ -251,13 +263,13 @@ export class ResultComponent implements OnInit {
         this._gameScore = this._gameScore * 2;
         this.doubleMessage = true;
       }
-    }, 
+    },
     (err: any) => {
-     
+
     });
   }
 
-  
+
   OpenPass(){
     this.lblShow = !this.lblShow;
    //console.log("Hide/Show Password: " + this.lblShow);
@@ -278,26 +290,26 @@ export class ResultComponent implements OnInit {
 
       // Deserialize payload
       const body: any = resp.body; // JSON.parse(response);
-      
+
       // Close the modal if pin & purchase are success
       let modal = UIkit.modal("#otp");
       modal.hide();
-      
+
       if (body.credits > 0)
         this.session.credits = body.credits;
-  
+
      //console.log("hasCredit: " + this.session.hasCredit());
-       
-  
+
+
       this.session.user = body;
       this._gamesPlayed = this.session.gamesPlayed;
      //console.table(body);
-    
+
       if (this.session.credits > 0) {
         // Burn Credit
         // this.session.credits--;
         this.startGame();
-      
+
       }
 
     },
@@ -332,7 +344,7 @@ export class ResultComponent implements OnInit {
   resetPin() {
    //console.log("Reset PIN!");
   }
-  
+
   OpenResultAgain() {
    //console.log("Open Result Again");
    document.body.classList.remove('winnersBg','horoscopesBg','sportsBg');
@@ -345,21 +357,21 @@ export class ResultComponent implements OnInit {
     let modal = UIkit.modal("#result", {escClose: false, bgClose: false});
     modal.show();
   }
-  
+
   returnHome() {
     document.body.classList.remove('winnersBg','horoscopesBg','sportsBg');
 
     this.router.navigate(['returnhome']);
   }
-  
+
   startFreeGame() {
     this.router.navigate(['freetimegame']);
   }
-  
+
   hasCredit() {
 	  return this.session.hasCredit();
   }
-  
+
   get TopText(): string {
     if(this._gameScore == 0)
       return this.translate.instant('END.MES_01')
@@ -372,7 +384,7 @@ export class ResultComponent implements OnInit {
     if(this._gameScore >= 10)
       return this.translate.instant('END.MES_05')
   }
-  
+
   get answerMessage(): string {
     if(this._gameScore == 0)
       return this.translate.instant('END.MES_06')
@@ -385,12 +397,12 @@ export class ResultComponent implements OnInit {
     // if(this._rightAnswerCount >= 10)
     //   return "Прекрасно!"
   }
-  
+
   get FooterText(): string {
    //console.log("Games Played: "+ this._gamesPlayed);
     // if(this._firstGameEver){
     //   return "Станьте ближе к 25 000 ₽\nПолучите дополнительную игру сейчас!"
-    // }else 
+    // }else
     if(this._gamesPlayed == 1){
       return "Keep playing for today’s 10,000$"
     }else if(this._gameScore <= this._bestWeekScore) {
