@@ -25,8 +25,8 @@
     <div *ngIf="!this.hasDoubledAll && !bannersSet2" class="list-wrapper">
       <p style="text-align: center; color: rgb(0, 0, 0); font-size: large; font-weight: bold;">{{ 'END.DOUBLE' | translate }}</p>
       <button *ngIf="this.winnersElig" style = "background: url(assets/images/winners_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenWinners()">{{ 'END.WINNERS' | translate }}</button>
-      <button *ngIf="this.sportsElig" style = "background: url(assets/images/sports_small.jpg) 5px 5px no-repeat;background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
-      <button *ngIf="this.horosElig" style = "background: url(assets/images/horoscopes_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button>
+      <!-- <button *ngIf="this.sportsElig" style = "background: url(assets/images/sports_small.jpg) 5px 5px no-repeat;background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenSports()">{{ 'END.SPORTS' | translate }}</button>
+      <button *ngIf="this.horosElig" style = "background: url(assets/images/horoscopes_small.jpg) 5px 5px no-repeat; background-color: white;" class="uk-button uk-button-default play-button2 uk-width-1-1 uk-modal-close"   (click)="OpenHoroscopes()">{{ 'END.HOROSC' | translate }}</button> -->
     </div>
 
     <!--BANNERS SET 2-->

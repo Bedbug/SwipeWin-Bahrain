@@ -44,8 +44,8 @@ export class ResultComponent implements OnInit {
   private _bestWeekScore = 0;
 
   public winnersElig:boolean = true;
-  public sportsElig:boolean = true;
-  public horosElig:boolean = true;
+  public sportsElig:boolean = false;
+  public horosElig:boolean = false;
   public hasDoubledAll:boolean = false;
   bannersSet2: boolean = false;
 
