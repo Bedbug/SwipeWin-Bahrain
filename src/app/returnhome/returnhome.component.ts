@@ -42,8 +42,8 @@ export class ReturnhomeComponent implements OnInit {
   }
 
   public winnersElig:boolean = true;
-  public sportsElig:boolean = true;
-  public horosElig:boolean = true;
+  public sportsElig:boolean = false;
+  public horosElig:boolean = false;
   public hasDoubledToday:boolean = false;
 
   // Check if already a subscribed player
