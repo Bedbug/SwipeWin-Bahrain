@@ -121,7 +121,8 @@ export class ReturnhomeComponent implements OnInit {
 
 
       // Doubled Check
-      if(this.sessionService.hasDoubledAtSportsClubAt == null && this.sessionService.hasDoubledAtWinnersClubAt == null && this.sessionService.hasDoubledAtHoroscopesAt == null)
+      //if(this.sessionService.hasDoubledAtSportsClubAt == null && this.sessionService.hasDoubledAtWinnersClubAt == null && this.sessionService.hasDoubledAtHoroscopesAt == null)
+      if(this.sessionService.hasDoubledAtWinnersClubAt == null)
         this.hasDoubledToday = false;
         else
         this.hasDoubledToday = true;

@@ -84,7 +84,8 @@ export class ResultComponent implements OnInit {
 
 
     // All Doubled
-    if(this.session.lastGameResults.subscribedAtWinnersClubAt != null && this.session.lastGameResults.subscribedAtSportsClubAt != null && this.session.lastGameResults.subscribedAtHoroscopesAt != null)
+    //if(this.session.lastGameResults.subscribedAtWinnersClubAt != null && this.session.lastGameResults.subscribedAtSportsClubAt != null && this.session.lastGameResults.subscribedAtHoroscopesAt != null)
+    if(this.session.lastGameResults.subscribedAtWinnersClubAt != null)
       this.hasDoubledAll = true;
 
 
